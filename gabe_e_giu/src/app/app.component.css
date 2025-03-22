@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
+@import url('https://fonts.cdnfonts.com/css/bigilla');
+
+.menu_bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    width: 100%;
+}
+
+.main_app {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+* {
+    font-weight: 100;
+        font-family: Montserrat, "Open Sans", Helvetica, Arial, sans-serif;
+}

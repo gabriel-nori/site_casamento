@@ -11,5 +11,5 @@ export const routes: Routes = [
   { path: 'dicas', component: DicasComponent },
   { path: 'recomendacoes', component: RecomendacoesComponent },
   { path: 'presentes', component: PresentesComponent },
-  { path: '**', component: NotFoundComponent } // Optional: Redirect unknown routes to home
+  { path: '**', component: NotFoundComponent } // Optional: Redirect unknown routes to not found
 ];

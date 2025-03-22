@@ -1,8 +1,12 @@
-<nav>
-    <ul>
-      <li><a routerLink="/home">Home</a></li>
-      <li><a routerLink="/dicas">Dicas</a></li>
-      <li><a routerLink="/recomendacoes">Recomendações</a></li>
-      <li><a routerLink="/presentes">Presentes</a></li>
-    </ul>
-</nav>
+<div class="menu_holder">
+  <div class="menu_opener">3</div>
+  <div class="menu_spacer"></div>
+  <nav class="menu">
+      <ul>
+        <li><a [routerLink]="['/home']" routerLinkActive="active">Home</a></li>
+        <li><a [routerLink]="['/dicas']" routerLinkActive="active">Dicas</a></li>
+        <li><a [routerLink]="['/recomendacoes']" routerLinkActive="active">Recomendações</a></li>
+        <li><a [routerLink]="['/presentes']" routerLinkActive="active">Presentes</a></li>
+      </ul>
+  </nav>
+</div>
