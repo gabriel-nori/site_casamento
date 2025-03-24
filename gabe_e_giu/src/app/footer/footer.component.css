@@ -1,0 +1,27 @@
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+    background-color: #715f26;
+}
+
+.icon {
+    height: 30px;
+    width: auto;
+    stroke: #f2dcd6;
+}
+
+.name {
+    max-height: 40px;
+}
+
+.gabe_e_giu {
+    display: flex;
+    flex-direction: row;
+}
+
+.social {
+    display: flex;
+    flex-direction: row;
+}
