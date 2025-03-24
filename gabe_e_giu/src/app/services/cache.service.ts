@@ -1,9 +1,10 @@
 import { cache } from '@models/cache.model'
 import { ApiService } from '@api'
+import { environment } from '@environment'
 
 export class CacheService<T> {
     private cache: cache<T> = {data:[], timestamp: 0}
-    private default_duration: number = 15 * 60 * 1000
+    private default_duration: number = environment.default_cache_time_seconds
     private duration: number = 0
     private api: null|ApiService<T> = null
     private default_path: string = ""
@@ -11,9 +12,9 @@ export class CacheService<T> {
 
     constructor(
         key: string,
-        duration?: number,
         uses_api: boolean = false,
-        path?: string
+        path?: string,
+        duration?: number
     ) {
         this.cache_key = "cache_" + key
         this.retrieveData()
@@ -24,7 +25,7 @@ export class CacheService<T> {
         else {
             this.duration = this.default_duration
         }
-
+        
         if(uses_api){
             this.api = new ApiService<T>()
         }
@@ -39,10 +40,10 @@ export class CacheService<T> {
     }
 
     public isValid(): boolean {
-        const expiration_time = this.getTimestamp() + this.duration
+        // const expiration_time = this.getTimestamp() + this.duration
         return (
             this.cache.timestamp != 0 &&
-            this.cache.timestamp <= expiration_time
+            this.cache.timestamp + this.duration >= this.getTimestamp()
         )
     }
 

@@ -1,0 +1,20 @@
+.main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    justify-content: space-evenly;
+}
+
+.product_card {
+    width: 250px;
+    max-width: 45%;
+}

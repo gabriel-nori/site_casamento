@@ -1,1 +1,8 @@
-<p>presentes works!</p>
+<div class="main">
+    <ng-container *ngIf="!has_items">
+        <div class="no_items">
+            no items in here
+        </div>
+    </ng-container>
+    <app-card-presente *ngFor="let product of products" [product]="product" class="product_card"></app-card-presente>
+</div>

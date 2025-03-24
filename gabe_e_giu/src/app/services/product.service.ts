@@ -7,16 +7,15 @@ import { Injectable } from '@angular/core';
 })
 
 export class ProductService {
-    private readonly DEFAULT_CACHE_TIME: number = 15 * 60 * 1000;
-    private product_cache: CacheService<product> = new CacheService("product_list", this.DEFAULT_CACHE_TIME, true, "products.php")
-    private category_cache: CacheService<string> = new CacheService("product_category", this.DEFAULT_CACHE_TIME, true)
-    private type_cache: CacheService<string> = new CacheService("product_type", this.DEFAULT_CACHE_TIME, true)
+    private product_cache: CacheService<product> = new CacheService("product_list", true, "products.php")
+    private category_cache: CacheService<string> = new CacheService("product_category", true)
+    private type_cache: CacheService<string> = new CacheService("product_type", true)
   
-    public async getProducts(): Promise<product[]|undefined> {
+    public async getProducts(): Promise<product[]> {
         return await this.product_cache.getDataAutomatic()
     }
 
-    async getCategories(): Promise<string[]|undefined>{
-        return undefined
+    async getCategories(): Promise<string[]>{
+        return []
     }
 }
