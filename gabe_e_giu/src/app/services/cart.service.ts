@@ -77,4 +77,8 @@ export class CartService {
         this.cart.total = total_price
         this.storeCart()
     }
+
+    public get(): cartInterface {
+        return this.cart
+    }
 }

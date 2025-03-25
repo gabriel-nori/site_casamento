@@ -1,0 +1,21 @@
+<div class="main">
+    <div class="item_row" *ngFor="let item of cart_items">
+        <div class="main_item_data">
+            <img [src]="item.photo_path" alt="" class="item_img">
+            <p class="item_name">{{item.name}}</p>
+        </div>
+        <div class="secondary_item_data">
+            <span class="unit_cost">Valor: {{item.price_cents/100}}</span>
+            <span class="quantity">Quantidade: {{item.quantity}}</span>
+            <span class="total_value">Total: R${{item.total_cents/100}}</span>
+        </div>
+    </div>
+    <div class="cart_overview">
+        <p class="cart_total">Total</p>
+        <p class="item_count_text">Items</p>
+        <span class="item_count_ammount">{{cart_data.item_count}}</span>
+        <p class="total_ammount_text">Valor</p>
+        <span class="total_ammount_value">R${{cart_data.total/100}}</span>
+    </div>
+    <button class="checkout_btn">Checkout <span class="material-symbols-outlined">attach_money</span> </button>
+</div>

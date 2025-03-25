@@ -13,6 +13,9 @@
             <li><a [routerLink]="['/presentes']" routerLinkActive="active">Presentes</a></li>
         </ul>
     </nav>
+    <a [routerLink]="['/cart']" routerLinkActive="active">
+        <span class="material-symbols-outlined cart">shopping_cart</span>
+    </a>
 </div>
 <div class="main_app">
     <router-outlet></router-outlet>

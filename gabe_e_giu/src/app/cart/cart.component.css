@@ -1,0 +1,20 @@
+.main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    padding: 0;
+    padding: 30px;
+}
+
+.main_item_data,
+.secondary_item_data {
+    display: flex;
+    flex-direction: row;
+}
+
+.item_img {
+    max-height: 80px;
+}
