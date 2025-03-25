@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, NgModule } from '@angular/core'
+import { CartService } from '@services/cart.service'
 import { product } from '@models/product.model'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
@@ -12,6 +13,7 @@ import { FormsModule } from '@angular/forms'
 
 export class CardPresenteComponent {
   @Input() product: product = {
+    id: 1,
     photo_path: "",
     name: "",
     description: "",
@@ -19,6 +21,8 @@ export class CardPresenteComponent {
     category: "",
     type: "",
   }
+
+  constructor(private cart: CartService){}
 
   quantity: number = 1
   added_to_cart: boolean = false
@@ -41,6 +45,8 @@ export class CardPresenteComponent {
   add_to_cart() {
     this.selecting_quantity = false
     this.added_to_cart = true
+    this.cart.addItem(this.product, this.quantity)
+    this.quantity = 1
     setTimeout(()=>{
       this.added_to_cart = false
     }, 1000)

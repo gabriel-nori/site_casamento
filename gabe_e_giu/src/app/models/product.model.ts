@@ -1,4 +1,5 @@
 export interface product {
+    id: number
     photo_path: string
     name: string
     description: string
