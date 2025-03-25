@@ -1,6 +1,6 @@
 <div class="card box_shaddow round_border">
-    <img [src]="product.photo_path" alt="" class="cover_img">
-    <h3>{{ product.name }}</h3>
-    <p>Price: R${{ product.price_cents / 100 }}</p>
+    <img [src]="product.photo_path" alt="" class="cover_img" (click)="openModal()">
+    <h3 (click)="openModal()">{{ product.name }}</h3>
+    <p (click)="openModal()">Price: R${{ product.price_cents / 100 }}</p>
     <app-cart-add-button class="cart_add" [product]="product"></app-cart-add-button>
 </div>
