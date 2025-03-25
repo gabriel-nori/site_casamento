@@ -9,6 +9,7 @@
             <span class="quantity">Quantidade: {{item.quantity}}</span>
             <span class="total_value">Total: R${{item.total_cents/100}}</span>
         </div>
+        <span class="edit" (click)="edit_item(item)">$</span>
     </div>
     <div class="cart_overview">
         <p class="cart_total">Total</p>
