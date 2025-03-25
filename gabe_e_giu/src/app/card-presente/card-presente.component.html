@@ -13,10 +13,11 @@
         </div>
         <span
             class="material-symbols-outlined"
-            [ngClass]="[selecting_quantity ? 'hide' : 'show']"
+            [ngClass]="[selecting_quantity||added_to_cart ? 'hide' : 'show']"
             (click)="toggle_quantity_select()"
         >
             add_shopping_cart
         </span>
+        <span class="material-symbols-outlined" [ngClass]="[added_to_cart ? 'show' : 'hide']">check_circle</span>
     </div>
 </div>

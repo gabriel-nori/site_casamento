@@ -21,7 +21,7 @@ export class CardPresenteComponent {
   }
 
   quantity: number = 1
-
+  added_to_cart: boolean = false
   selecting_quantity: boolean = false
 
   toggle_quantity_select() {
@@ -39,7 +39,11 @@ export class CardPresenteComponent {
   }
 
   add_to_cart() {
-
+    this.selecting_quantity = false
+    this.added_to_cart = true
+    setTimeout(()=>{
+      this.added_to_cart = false
+    }, 1000)
   }
 
 }
