@@ -22,4 +22,5 @@
 .product_card {
     width: 250px;
     max-width: 45%;
+    min-width: 30%;
 }

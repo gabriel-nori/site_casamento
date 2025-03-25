@@ -1,23 +1,6 @@
 <div class="card box_shaddow round_border">
     <img [src]="product.photo_path" alt="" class="cover_img">
     <h3>{{ product.name }}</h3>
-    <p>{{ product.description }}</p>
     <p>Price: R${{ product.price_cents / 100 }}</p>
-    <div class="cart_add">
-        <div class="quantity" [ngClass]="[selecting_quantity ? 'show' : 'hide']">
-            <span class="material-symbols-outlined" (click)="toggle_quantity_select()">close</span>
-            <span class="material-symbols-outlined decrease" (click)="decrease_quantity()">remove</span>
-            <input type="number" [(ngModel)]="quantity" class="counter">
-            <span class="material-symbols-outlined increase" (click)="increase_quantity()">add</span>
-            <span class="material-symbols-outlined" (click)="add_to_cart()">check</span>
-        </div>
-        <span
-            class="material-symbols-outlined"
-            [ngClass]="[selecting_quantity||added_to_cart ? 'hide' : 'show']"
-            (click)="toggle_quantity_select()"
-        >
-            add_shopping_cart
-        </span>
-        <span class="material-symbols-outlined" [ngClass]="[added_to_cart ? 'show' : 'hide']">check_circle</span>
-    </div>
+    <app-cart-add-button class="cart_add" [product]="product"></app-cart-add-button>
 </div>
