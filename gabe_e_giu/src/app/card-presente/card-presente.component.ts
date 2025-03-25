@@ -1,9 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, NgModule } from '@angular/core'
 import { product } from '@models/product.model'
+import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-card-presente',
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './card-presente.component.html',
   styleUrl: './card-presente.component.css'
 })
@@ -17,4 +19,27 @@ export class CardPresenteComponent {
     category: "",
     type: "",
   }
+
+  quantity: number = 1
+
+  selecting_quantity: boolean = false
+
+  toggle_quantity_select() {
+    this.selecting_quantity = !this.selecting_quantity
+  }
+
+  decrease_quantity() {
+    if(this.quantity > 1) {
+      this.quantity --
+    }
+  }
+
+  increase_quantity() {
+    this.quantity ++
+  }
+
+  add_to_cart() {
+
+  }
+
 }
