@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat');
 @import url('https://fonts.cdnfonts.com/css/bigilla');
 
+* {
+    font-weight: 100;
+    font-family: Montserrat, "Open Sans", Helvetica, Arial, sans-serif;
+}
+
 .menu_bar {
     position: fixed;
     top: 0;
@@ -19,7 +24,152 @@
     width: 100%;
 }
 
-* {
-    font-weight: 100;
-        font-family: Montserrat, "Open Sans", Helvetica, Arial, sans-serif;
+.menu_holder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* .menu_spacer{
+    flex-grow: 1;
+}
+
+.menu {
+    display: inline-block;
+    padding-right: 50px;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu ul li:first-child {
+    padding-left: 0;
+} */
+
+.menu ul li {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+}
+
+.active {
+    cursor: default;
+    color: rgba(20, 20, 20, 0.801);
+}
+
+.menu_opener {
+    order: 2;
+    justify-content: center;
+}
+
+@media (max-width: 550px) {
+    .container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 2;
+    }
+
+    .menu_holder {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: row;
+        transform: translateX(100%);
+    }
+
+    .menu_spacer {
+        width: 50%;
+        height: 100%;
+        background-color: #FFF;
+        opacity: 0.5;
+    }
+
+    .main_app {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .menu {
+        padding-top: 60px;
+        width: 50%;
+        height: 100%;
+        background-color: #FFF;
+        display: flex;
+        flex-direction: column;
+        padding-right: 50px;
+    }
+
+    .menu ul {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 20px;
+    height: 3px;
+    background-color: #333;
+    margin: 3px 0;
+    transition: 0.4s;
+    mix-blend-mode: difference;
+}
+
+.change .bar1 {
+    transform: translate(0, 6px) rotate(-45deg);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: translate(0, -6px) rotate(45deg);
+}
+
+@keyframes opened_menu {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes closed_menu {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.open_menu {
+    animation: opened_menu 0.5s ease-out forwards;
+}
+
+.close_menu {
+    animation: closed_menu 0.5s ease-in forwards;
 }
