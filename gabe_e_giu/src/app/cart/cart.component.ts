@@ -35,7 +35,7 @@ export class CartComponent implements OnInit{
       height: '90%',
       maxHeight: '750px',
       maxWidth: '400',
-      data: item
+      data: {item: item, include: false}
     });
   }
 }

@@ -1,10 +1,10 @@
-<h2 mat-dialog-title>{{ data.name }}</h2>
+<h2 mat-dialog-title>{{ data.item.name }}</h2>
 <mat-dialog-content>
-  <img [src]="data.photo_path" alt="" class="cover_img">
-    <h3>{{ data.name }}</h3>
-    <p>{{data.description}}</p>
-    <p>Price: R${{ data.price_cents / 100 }}</p>
-    <app-cart-add-button class="cart_add" [product]="data"></app-cart-add-button>
+  <img [src]="data.item.photo_path" alt="" class="cover_img">
+    <h3>{{ data.item.name }}</h3>
+    <p>{{data.item.description}}</p>
+    <p>Price: R${{ data.item.price_cents / 100 }}</p>
+    <app-cart-add-button class="cart_add" [product]="data.item"></app-cart-add-button>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button (click)="closeModal()">Fechar</button>

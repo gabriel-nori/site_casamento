@@ -21,7 +21,10 @@ import { CartProductInterface } from '@models/cart.model';
 export class PresenteModalComponent {
   constructor(
     public dialogRef: MatDialogRef<PresenteModalComponent>,
-    @Inject(MAT_DIALOG_DATA) protected data: product|CartProductInterface
+    @Inject(MAT_DIALOG_DATA) protected data: {
+      item: product|CartProductInterface,
+      include: boolean
+    }
   ) {}
 
   closeModal(): void {

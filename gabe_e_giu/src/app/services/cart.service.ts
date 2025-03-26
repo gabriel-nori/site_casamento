@@ -1,4 +1,4 @@
-import { cartInterface } from '@models/cart.model';
+import { cartInterface, CartProductInterface } from '@models/cart.model';
 import { product } from '@models/product.model'
 import { Injectable } from '@angular/core';
 
@@ -80,5 +80,9 @@ export class CartService {
 
     public get(): cartInterface {
         return this.cart
+    }
+
+    public getItemById(id: number|string): CartProductInterface {
+        return this.cart.items[id]
     }
 }

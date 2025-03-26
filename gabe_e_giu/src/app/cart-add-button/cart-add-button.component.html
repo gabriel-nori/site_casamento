@@ -8,7 +8,7 @@
     </div>
     <span
         class="material-symbols-outlined"
-        [ngClass]="[selecting_quantity||added_to_cart ? 'hide' : 'show']"
+        [ngClass]="[selecting_quantity||added_to_cart||editMode ? 'hide' : 'show']"
         (click)="toggle_quantity_select()"
     >
         add_shopping_cart

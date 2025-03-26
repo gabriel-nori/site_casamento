@@ -38,7 +38,7 @@ export class CardPresenteComponent {
       height: '90%',
       maxHeight: '750px',
       maxWidth: '400',
-      data: this.product
+      data: {item: this.product, include: true}
     });
   }
 }
