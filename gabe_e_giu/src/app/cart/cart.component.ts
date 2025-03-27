@@ -6,10 +6,14 @@ import { product } from '@models/product.model';
 import { MatDialog } from '@angular/material/dialog';
 import { PresenteModalComponent } from '../presente-modal/presente-modal.component';
 import { ConfirmationMessageComponent } from '../confirmation-message/confirmation-message.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatIconModule
+  ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
