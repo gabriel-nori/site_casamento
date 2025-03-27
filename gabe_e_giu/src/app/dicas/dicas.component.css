@@ -3,13 +3,18 @@
     height: auto;
 }
 
+.upper_text{
+    text-transform: uppercase;
+}
+
 .main {
     width: 100%;
     height: 100%;
     max-width: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
-    background-color: #f6b1ca;
+    background-color: #eaa4c1;
+    padding-bottom: 40px;
 }
 
 .first_container {
@@ -24,19 +29,45 @@
     justify-content: center;
 }
 
+.title_holder {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: row;
+    color: #f2dcd6;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title_text {
+    font-family: 'Bigilla', sans-serif;
+    font-size: 6.5rem;
+}
+
+.title_info_text{
+    font-size: 0.8rem;
+}
+
 .info_text {
     font-size: 400%;
     color: #440f21;
+}
+
+.chegando_no {
+    padding: 0;
+    margin: 0;
 }
 
 .middle {
     width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
 }
 
 .polaroid_left {
-    width: 40%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -49,6 +80,13 @@
 }
 
 .casarao_location {
-    width: 60%;
+    
+    width: 50%;
+    padding-right: 20px;
+}
+
+.casarao_location_text {
+    color: #f2dcd6;
+    font-size: 0.6rem;
     padding-right: 20px;
 }
