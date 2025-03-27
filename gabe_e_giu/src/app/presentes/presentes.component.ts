@@ -3,10 +3,15 @@ import { product } from '@models/product.model';
 import { ProductService } from '@services/product.service'
 import { CardPresenteComponent } from '../card-presente/card-presente.component';
 import { CommonModule } from '@angular/common';
+import { FilterSearchComponent } from '../filter-search/filter-search.component';
 
 @Component({
   selector: 'app-presentes',
-  imports: [CommonModule, CardPresenteComponent],
+  imports: [
+    CommonModule,
+    CardPresenteComponent,
+    FilterSearchComponent
+  ],
   templateUrl: './presentes.component.html',
   styleUrl: './presentes.component.css'
 })
