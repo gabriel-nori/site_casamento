@@ -24,6 +24,8 @@ a {
 .gabe_e_giu {
     display: flex;
     flex-direction: row;
+    align-self: self-start;
+    padding-left: 20px;
 }
 .menu_bar {
     height: 50px;
