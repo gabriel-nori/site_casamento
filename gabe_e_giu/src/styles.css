@@ -1,6 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+mat-icon {
+    font-family: 'Material Icons' !important;
+}
 
-html, body { height: 100%; }
+mat-icon.outlined {
+    font-family: 'Material Icons Outlined' !important;
+}
+
+mat-icon.round {
+    font-family: 'Material Icons Round' !important;
+}
+
+mat-icon.sharp {
+    font-family: 'Material Icons Sharp' !important;
+}
+
+html,
+body {
+    height: 100%;
+}
+
 body {
     margin: 0;
     font-weight: 100;

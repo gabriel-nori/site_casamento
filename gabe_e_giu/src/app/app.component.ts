@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, RouterModule],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    RouterModule,
+    MatIconModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
