@@ -55,6 +55,8 @@
 .info{
     /* padding-top: 50px;
     padding-bottom: 50px; */
+    padding: 0;
+    margin: 0;
     width: 100%;
 }
 
@@ -165,5 +167,10 @@
 }
 
 .bottom_pattern {
+    padding: 0;
+    margin: -5px;
+}
 
+.menu {
+    width: 100%;
 }

@@ -1,0 +1,45 @@
+<div class="menu_bar">
+    <div class="name_holder">
+        <div class="gabe_e_giu">
+            <img src="/assets/images/gabe.png" alt="Gabe" class="gabe_name name">
+            <img src="/assets/images/e_giu.png" alt="e Giu" class="giu_name name">
+        </div>
+    </div>
+    <div class="container_holder">
+        <div class="container" (click)="toggle_menu()" [ngClass]="{ 'change': menu_open }">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </div>
+</div>
+<div class="menu_holder" [ngClass]="[menu_open ? 'open_menu' : 'close_menu']">
+    <div class="menu_spacer" (click)="toggle_menu()"></div>
+    <nav class="menu">
+        <ul>
+            <a [routerLink]="['/home']" routerLinkActive="active" (click)="toggle_menu()">
+                <li>
+                    Home
+                </li>
+            </a>
+            <a [routerLink]="['/dicas']" routerLinkActive="active" (click)="toggle_menu()">
+                <li>
+                    Dicas
+                </li>
+            </a>
+            <a [routerLink]="['/recomendacoes']" routerLinkActive="active" (click)="toggle_menu()">
+                <li>
+                    Recomendações
+                </li>
+            </a>
+            <a [routerLink]="['/presentes']" routerLinkActive="active" (click)="toggle_menu()">
+                <li>
+                    Presentes
+                </li>
+            </a>
+        </ul>
+    </nav>
+    <a [routerLink]="['/cart']" routerLinkActive="cart_active">
+        <mat-icon class="cart" (click)="toggle_menu()">shopping_cart</mat-icon>
+    </a>
+</div>
