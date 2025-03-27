@@ -18,3 +18,9 @@
 .item_img {
     max-height: 80px;
 }
+
+.empty_cart_img {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}

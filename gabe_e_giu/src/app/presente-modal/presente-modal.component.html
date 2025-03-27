@@ -4,7 +4,7 @@
     <h3>{{ data.item.name }}</h3>
     <p>{{data.item.description}}</p>
     <p>Price: R${{ data.item.price_cents / 100 }}</p>
-    <app-cart-add-button class="cart_add" [product]="data.item"></app-cart-add-button>
+    <app-cart-add-button class="cart_add" [product]="data.item" [editMode]="!data.include"></app-cart-add-button>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button (click)="closeModal()">Fechar</button>
