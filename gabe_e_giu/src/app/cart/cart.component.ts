@@ -7,12 +7,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { PresenteModalComponent } from '../presente-modal/presente-modal.component';
 import { ConfirmationMessageComponent } from '../confirmation-message/confirmation-message.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-cart',
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    MenuComponent
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
