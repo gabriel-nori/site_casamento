@@ -49,6 +49,7 @@ export class CartService {
 
     public updateQuantity(item: product, quantity: number) {
         this.cart.items[item.id].quantity = quantity
+        this.cart.items[item.id].total_cents = item.price_cents * quantity
         this.updatePriceQuantity()
     }
 

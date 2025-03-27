@@ -24,6 +24,11 @@ export class CartComponent implements OnInit{
   protected cart_data: cartInterface = {total: 0, item_count: 0, items: {}}
 
   ngOnInit() {
+    this.loadCartItems()
+  }
+
+  private loadCartItems(): void {
+    this.cart_items = []
     for (const key in this.cart_data.items) {
       this.cart_items.push(this.cart_data.items[key])
     }
@@ -37,5 +42,10 @@ export class CartComponent implements OnInit{
       maxWidth: '400',
       data: {item: item, include: false}
     });
+  }
+
+  remove_item(item: CartProductInterface) {
+    this.cart.removeItem(item.id)
+    this.loadCartItems()
   }
 }

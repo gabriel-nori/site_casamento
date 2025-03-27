@@ -64,10 +64,16 @@ export class CartAddButtonComponent implements OnInit {
   }
 
   add_to_cart() {
-    this.selecting_quantity = false
+    if(!this.editMode){
+      this.selecting_quantity = false
+      this.cart.addItem(this.product, this.quantity)
+      this.quantity = 1
+    }
+    else {
+      this.cart.updateQuantity(this.product, this.quantity)
+    }
+
     this.added_to_cart = true
-    this.cart.addItem(this.product, this.quantity)
-    this.quantity = 1
     setTimeout(()=>{
       this.added_to_cart = false
     }, 1000)
