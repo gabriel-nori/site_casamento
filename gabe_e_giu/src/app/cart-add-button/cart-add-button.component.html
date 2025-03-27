@@ -1,10 +1,10 @@
 <div class="main">
-    <div class="quantity" [ngClass]="[selecting_quantity||editMode ? 'show' : 'hide']">
-        <span class="material-symbols-outlined" (click)="toggle_quantity_select()" *ngIf="!editMode">close</span>
+    <div class="quantity" [ngClass]="[selecting_quantity||(editMode && !added_to_cart) ? 'show' : 'hide']">
+        <span class="material-symbols-outlined close" (click)="toggle_quantity_select()" *ngIf="!editMode">close</span>
         <span class="material-symbols-outlined decrease" (click)="decrease_quantity()">remove</span>
         <input type="number" [(ngModel)]="quantity" class="counter">
         <span class="material-symbols-outlined increase" (click)="increase_quantity()">add</span>
-        <span class="material-symbols-outlined" (click)="add_to_cart()">check</span>
+        <span class="material-symbols-outlined confirm" (click)="add_to_cart()">check</span>
     </div>
     <span
         class="material-symbols-outlined"
@@ -14,4 +14,4 @@
         add_shopping_cart
     </span>
     <span class="material-symbols-outlined" [ngClass]="[added_to_cart ? 'show' : 'hide']">check_circle</span>
-</div>
+</div> 

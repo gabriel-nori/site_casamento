@@ -1,4 +1,18 @@
 mat-dialog-content {
-    font-size: 16px;
-    color: #333;
-  }
+  font-size: 16px;
+  color: #333;
+}
+
+.cart_add_holder {
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  border-radius: 55px 55px 55px 55px;
+  -moz-border-radius: 55px 55px 55px 55px;
+  -webkit-border-radius: 55px 55px 55px 55px;
+  border: 0px solid #000000;
+}
+
+.cart_add {
+  width: 100%;
+}
