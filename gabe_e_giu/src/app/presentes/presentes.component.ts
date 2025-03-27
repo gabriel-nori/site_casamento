@@ -4,13 +4,15 @@ import { ProductService } from '@services/product.service'
 import { CardPresenteComponent } from '../card-presente/card-presente.component';
 import { CommonModule } from '@angular/common';
 import { FilterSearchComponent } from '../filter-search/filter-search.component';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-presentes',
   imports: [
     CommonModule,
     CardPresenteComponent,
-    FilterSearchComponent
+    FilterSearchComponent,
+    MenuComponent
   ],
   templateUrl: './presentes.component.html',
   styleUrl: './presentes.component.css'

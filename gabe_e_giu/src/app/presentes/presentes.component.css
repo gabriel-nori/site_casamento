@@ -15,7 +15,6 @@
     padding: 0;
     justify-content: space-evenly;
     gap: 5%;
-    padding-top: 30px;
     padding-bottom: 30px;
 }
 
@@ -26,5 +25,9 @@
 }
 
 .filter_search {
+    width: 100%;
+}
+
+.menu {
     width: 100%;
 }
