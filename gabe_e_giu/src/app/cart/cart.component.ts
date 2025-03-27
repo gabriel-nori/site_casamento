@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { product } from '@models/product.model';
 import { MatDialog } from '@angular/material/dialog';
 import { PresenteModalComponent } from '../presente-modal/presente-modal.component';
+import { ConfirmationMessageComponent } from '../confirmation-message/confirmation-message.component';
 
 @Component({
   selector: 'app-cart',
@@ -44,8 +45,20 @@ export class CartComponent implements OnInit{
     });
   }
 
-  remove_item(item: CartProductInterface) {
-    this.cart.removeItem(item.id)
-    this.loadCartItems()
+  remove_item(item: CartProductInterface): void {
+    const dialogRef = this.dialog.open(ConfirmationMessageComponent, {
+      width: '400px',
+      data: {
+        title: 'Excluir item',
+        message: 'Tem certeza que deseja excluir o item da lista de compra?'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.cart.removeItem(item.id)
+        this.loadCartItems()
+      }
+    });
   }
 }
