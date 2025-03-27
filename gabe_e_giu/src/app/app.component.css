@@ -7,6 +7,10 @@
     font-family: Montserrat, "Open Sans", Helvetica, Arial, sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 .menu_bar {
     position: fixed;
     top: 0;
@@ -41,27 +45,31 @@
     padding-right: 50px;
 }
 
-.menu ul {
-    display: flex;
-    flex-direction: row;
-}
-
 .menu ul li:first-child {
     padding-left: 0;
 } */
 
+.menu ul {
+    width: 100%;
+}
+
 .menu ul li {
     list-style: none;
     padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #00000033;
 }
 
-.menu ul li a {
+.menu ul a {
     text-decoration: none;
+    color: #000000;
 }
 
 .active {
     cursor: default;
     color: rgba(20, 20, 20, 0.801);
+    background-color: #00000065;
 }
 
 .menu_opener {
@@ -102,24 +110,43 @@
     }
 
     .menu {
+        padding: 0;
         padding-top: 60px;
         width: 50%;
         height: 100%;
         background-color: #FFF;
         display: flex;
         flex-direction: column;
-        padding-right: 50px;
+        -webkit-box-shadow: -7px 3px 88px -26px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: -7px 3px 88px -26px rgba(0, 0, 0, 0.75);
+        box-shadow: -7px 3px 88px -26px rgba(0, 0, 0, 0.75);
+        border-radius: 20px 0px 0px 20px;
+        -moz-border-radius: 20px 0px 0px 20px;
+        -webkit-border-radius: 20px 0px 0px 20px;
+        border: 0px solid #000000;
     }
 
     .cart {
         position: absolute;
         bottom: 50px;
         right: 50px;
+        color: #000000;
+    }
+
+    .cart_active {
+        color: #00000065;
     }
 
     .menu ul {
         display: flex;
         flex-direction: column;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu ul li {
+        width: 100%;
     }
 }
 

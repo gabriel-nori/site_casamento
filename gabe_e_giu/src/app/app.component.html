@@ -4,17 +4,49 @@
     <div class="bar3"></div>
 </div>
 <div class="menu_holder" [ngClass]="[menu_open ? 'open_menu' : 'close_menu']">
-    <div class="menu_spacer"></div>
+    <div class="menu_spacer" (click)="toggle_menu()"></div>
     <nav class="menu">
         <ul>
-            <li><a [routerLink]="['/home']" routerLinkActive="active">Home</a></li>
-            <li><a [routerLink]="['/dicas']" routerLinkActive="active">Dicas</a></li>
-            <li><a [routerLink]="['/recomendacoes']" routerLinkActive="active">Recomendações</a></li>
-            <li><a [routerLink]="['/presentes']" routerLinkActive="active">Presentes</a></li>
+            <a 
+                [routerLink]="['/home']"
+                routerLinkActive="active"
+                (click)="toggle_menu()"
+            >
+                <li>
+                    Home
+                </li>
+            </a>
+            <a 
+                [routerLink]="['/dicas']"
+                routerLinkActive="active"
+                (click)="toggle_menu()"
+            >
+                <li>
+                    Dicas
+                </li>
+            </a>
+            <a 
+                [routerLink]="['/recomendacoes']"
+                routerLinkActive="active"
+                (click)="toggle_menu()"
+            >
+                <li>
+                    Recomendações
+                </li>
+            </a>
+            <a 
+                [routerLink]="['/presentes']"
+                routerLinkActive="active"
+                (click)="toggle_menu()"
+            >
+                <li>
+                    Presentes
+                </li>
+            </a>
         </ul>
     </nav>
-    <a [routerLink]="['/cart']" routerLinkActive="active">
-        <mat-icon class="cart" fontSet="material-icons-outlined">shopping_cart</mat-icon>
+    <a [routerLink]="['/cart']" routerLinkActive="cart_active">
+        <mat-icon class="cart" (click)="toggle_menu()">shopping_cart</mat-icon>
     </a>
 </div>
 <div class="main_app">
