@@ -14,7 +14,7 @@ export class CartService {
         item_count: 0,
         items:{}
     }
-    private api: ApiService<boolean> = new ApiService()
+    private api: ApiService<{status: number}> = new ApiService()
 
     constructor(){
         this.loadCart()
@@ -132,6 +132,6 @@ export class CartService {
                 }
             }
         )
-        return result
+        return result.status == 200
     }
 }

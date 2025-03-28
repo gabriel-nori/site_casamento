@@ -125,10 +125,11 @@ export class PaymentModalComponent implements OnInit {
             this.cart.sendCartPurchase(
               email as string,
               name as string
-            ).then()
-            this.cart.empty()
-            this.dialogRef.close();
-            this.router.navigate(['/success'])
+            ).then(()=>{
+              this.cart.empty()
+              this.dialogRef.close();
+              this.router.navigate(['/success'])
+            })
           }
         }
       });
