@@ -1,4 +1,4 @@
-import { apiGet } from '@models/api.model'
+import { apiGet, ApiParams, ApiPost } from '@models/api.model'
 import { environment } from '@environment'
 
 export class ApiService<T> {
@@ -16,6 +16,29 @@ export class ApiService<T> {
             
             const data: apiGet<T> = await response.json();
             return data.data
+        }
+        catch (error) {
+            console.error('Error fetching data:', error);
+            throw error;
+        }
+    }
+
+    public async postData(path: string, params: ApiParams): Promise<T> {
+        try {
+            let api_url = this.url + path
+            if(params.query_parameters) {
+                const queryString = new URLSearchParams(params.query_parameters).toString();
+                api_url += `?${queryString}`
+            }
+            console.log(params)
+            const response = await fetch(api_url, {
+                method: "POST",
+                body: JSON.stringify(params.body)
+            });
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+            
+            const data: T = await response.json();
+            return data
         }
         catch (error) {
             console.error('Error fetching data:', error);

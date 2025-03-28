@@ -82,9 +82,8 @@ export class PaymentModalComponent implements OnInit {
   ngOnInit() {
     this.stripe_service
       .createPaymentIntent({
-        "amount": this.cart.get().total.toString(),
-        "currency": 'brl',
-        "automatic_payment_methods[enabled]":"true"
+        amount: this.cart.get().total,
+        currency: 'brl'
       })
       .then(pi => {
         this.elementsOptions.clientSecret = pi.client_secret as string;
