@@ -1,6 +1,7 @@
 import { cartInterface, CartProductInterface } from '@models/cart.model';
 import { product } from '@models/product.model'
 import { Injectable } from '@angular/core';
+import { ApiService } from './api.service';
 
 @Injectable({
     providedIn: 'root'
@@ -13,6 +14,7 @@ export class CartService {
         item_count: 0,
         items:{}
     }
+    private api: ApiService<boolean> = new ApiService()
 
     constructor(){
         this.loadCart()
@@ -94,5 +96,42 @@ export class CartService {
             items:{}
         }
         this.storeCart()
+    }
+
+    public getIds(): number[] {
+        let id_list: number[] = []
+        for(let item in this.cart.items){
+            id_list.push(this.cart.items[item].id)
+        }
+        return id_list
+    }
+
+    public getProductsQuantity(): {id: number, quantity: number}[] {
+        let product_list: {id: number, quantity: number}[] = []
+        for(let item in this.cart.items){
+            let cart_item = this.cart.items[item]
+            product_list.push(
+                {
+                    id: cart_item.id,
+                    quantity: cart_item.quantity
+                }
+            )
+        }
+        return product_list
+    }
+
+    public async sendCartPurchase(email: string, name: string): Promise<boolean> {
+        const result = await this.api.postData(
+            "checkout.php", 
+            {
+                body:{
+                    email: email,
+                    name: name,
+                    total: this.cart.total,
+                    products: this.getProductsQuantity()
+                }
+            }
+        )
+        return result
     }
 }
