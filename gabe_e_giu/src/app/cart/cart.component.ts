@@ -8,6 +8,7 @@ import { PresenteModalComponent } from '../presente-modal/presente-modal.compone
 import { ConfirmationMessageComponent } from '../confirmation-message/confirmation-message.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MenuComponent } from '../menu/menu.component';
+import { PaymentModalComponent } from '../payment-modal/payment-modal.component';
 
 @Component({
   selector: 'app-cart',
@@ -65,6 +66,16 @@ export class CartComponent implements OnInit{
         this.cart.removeItem(item.id)
         this.loadCartItems()
       }
+    });
+  }
+
+  payCart() {
+    this.dialog.open(PaymentModalComponent, {
+      width: '90%',
+      height: '90%',
+      maxHeight: '750px',
+      maxWidth: '400',
+      data: {include: false}
     });
   }
 }

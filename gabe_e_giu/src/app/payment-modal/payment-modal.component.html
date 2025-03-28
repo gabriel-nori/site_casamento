@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>Pagamento</h2>
+<mat-dialog-content>
+    <mat-horizontal-stepper #stepper>
+        <div [formGroup]="paymentElementForm">
+            <mat-step label="Primeiro Passo">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput placeholder="name" formControlName="name" />
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput placeholder="Email" type="email" formControlName="email" />
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput placeholder="Address" formControlName="address" />
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput placeholder="ZIP Code" formControlName="zipcode" />
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput placeholder="city" formControlName="city" />
+                </mat-form-field>
+            </mat-step>
+
+            <mat-step label="Segundo Passo">
+                @if (elementsOptions.clientSecret) {
+                <ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
+                    <ngx-stripe-payment [options]="paymentElementOptions" />
+                </ngx-stripe-elements>
+                }
+                <button (click)="pay()">PAY</button>
+            </mat-step>
+        </div>
+    </mat-horizontal-stepper>
+
+
+
+
+</mat-dialog-content>
