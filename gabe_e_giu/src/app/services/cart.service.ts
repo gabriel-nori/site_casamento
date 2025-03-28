@@ -86,4 +86,13 @@ export class CartService {
     public getItemById(id: number|string): CartProductInterface {
         return this.cart.items[id]
     }
+
+    public empty(): void {
+        this.cart = {
+            total: 0,
+            item_count: 0,
+            items:{}
+        }
+        this.storeCart()
+    }
 }

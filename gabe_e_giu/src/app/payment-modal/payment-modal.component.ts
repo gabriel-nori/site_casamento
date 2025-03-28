@@ -20,6 +20,7 @@ import {
 } from '@stripe/stripe-js';
 import { StripeService } from '@services/stripe.service';
 import { MatStepperModule } from '@angular/material/stepper';
+import { CartService } from '@services/cart.service';
 
 @Component({
   selector: 'app-payment-modal',
@@ -36,6 +37,11 @@ import { MatStepperModule } from '@angular/material/stepper';
   styleUrl: './payment-modal.component.css'
 })
 export class PaymentModalComponent implements OnInit {
+  constructor(
+    private cart: CartService,
+    public dialogRef: MatDialogRef<PaymentModalComponent>
+  ){}
+
   @ViewChild(StripePaymentElementComponent)
   paymentElement!: StripePaymentElementComponent;
 
@@ -74,8 +80,8 @@ export class PaymentModalComponent implements OnInit {
   ngOnInit() {
     this.stripe_service
       .createPaymentIntent({
-        "amount": "10",
-        "currency": 'usd',
+        "amount": this.cart.get().total.toString(),
+        "currency": 'brl',
         "automatic_payment_methods[enabled]":"true"
       })
       .then(pi => {
@@ -84,11 +90,10 @@ export class PaymentModalComponent implements OnInit {
   }
 
   pay() {
-    if (this.paying() || this.paymentElementForm.invalid) return;
+    if (this.paying()) return;
     this.paying.set(true);
 
     const { name, email, address, zipcode, city } = this.paymentElementForm.getRawValue();
-
     this.stripe
       .confirmPayment({
         elements: this.paymentElement.elements,
@@ -109,7 +114,6 @@ export class PaymentModalComponent implements OnInit {
       })
       .subscribe(result => {
         this.paying.set(false);
-        console.log('Result', result);
         if (result.error) {
           // Show error to your customer (e.g., insufficient funds)
           alert({ success: false, error: result.error.message });
@@ -118,6 +122,8 @@ export class PaymentModalComponent implements OnInit {
           if (result.paymentIntent.status === 'succeeded') {
             // Show a success message to your customer
             alert({ success: true });
+            this.cart.empty()
+            this.dialogRef.close();
           }
         }
       });
