@@ -4,10 +4,15 @@ import { product } from '@models/product.model'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
 import { CartProductInterface } from '@models/cart.model'
+import { MatIconModule } from '@angular/material/icon'
 
 @Component({
   selector: 'app-cart-add-button',
-  imports: [CommonModule, FormsModule,],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatIconModule
+  ],
   templateUrl: './cart-add-button.component.html',
   styleUrl: './cart-add-button.component.css'
 })

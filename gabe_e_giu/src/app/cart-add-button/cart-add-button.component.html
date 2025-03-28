@@ -1,17 +1,14 @@
 <div class="main">
     <div class="quantity" [ngClass]="[selecting_quantity||(editMode && !added_to_cart) ? 'show' : 'hide']">
-        <span class="material-symbols-outlined close" (click)="toggle_quantity_select()" *ngIf="!editMode">close</span>
-        <span class="material-symbols-outlined decrease" (click)="decrease_quantity()">remove</span>
+        <mat-icon class="close" (click)="toggle_quantity_select()" *ngIf="!editMode">close</mat-icon>
+        <mat-icon class="decrease" (click)="decrease_quantity()">remove</mat-icon>
         <input type="number" [(ngModel)]="quantity" class="counter">
-        <span class="material-symbols-outlined increase" (click)="increase_quantity()">add</span>
-        <span class="material-symbols-outlined confirm" (click)="add_to_cart()">check</span>
+        <mat-icon class="increase" (click)="increase_quantity()">add</mat-icon>
+        <mat-icon class="confirm" (click)="add_to_cart()">check</mat-icon>
     </div>
-    <span
-        class="material-symbols-outlined"
-        [ngClass]="[selecting_quantity||added_to_cart||editMode ? 'hide' : 'show']"
-        (click)="toggle_quantity_select()"
-    >
+    <mat-icon [ngClass]="[selecting_quantity||added_to_cart||editMode ? 'hide' : 'show']"
+        (click)="toggle_quantity_select()">
         add_shopping_cart
-    </span>
-    <span class="material-symbols-outlined" [ngClass]="[added_to_cart ? 'show' : 'hide']">check_circle</span>
-</div> 
+    </mat-icon>
+    <mat-icon class="" [ngClass]="[added_to_cart ? 'show' : 'hide']">check_circle</mat-icon>
+</div>

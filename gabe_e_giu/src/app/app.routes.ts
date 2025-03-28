@@ -8,7 +8,7 @@ import { CartComponent } from './cart/cart.component';
 import { SuccessPurchaseComponent } from './success-purchase/success-purchase.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'dicas', component: DicasComponent },
   { path: 'recomendacoes', component: RecomendacoesComponent },

@@ -9,7 +9,7 @@ import { environment } from '@environment';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideRouter(routes, withHashLocation()),
+    provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideNgxStripe(environment.stripe_key)
   ]
