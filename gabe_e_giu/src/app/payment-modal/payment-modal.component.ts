@@ -21,6 +21,7 @@ import {
 import { StripeService } from '@services/stripe.service';
 import { MatStepperModule } from '@angular/material/stepper';
 import { CartService } from '@services/cart.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-payment-modal',
@@ -39,7 +40,8 @@ import { CartService } from '@services/cart.service';
 export class PaymentModalComponent implements OnInit {
   constructor(
     private cart: CartService,
-    public dialogRef: MatDialogRef<PaymentModalComponent>
+    public dialogRef: MatDialogRef<PaymentModalComponent>,
+    private router: Router
   ){}
 
   @ViewChild(StripePaymentElementComponent)
@@ -116,14 +118,14 @@ export class PaymentModalComponent implements OnInit {
         this.paying.set(false);
         if (result.error) {
           // Show error to your customer (e.g., insufficient funds)
-          alert({ success: false, error: result.error.message });
+          alert(result.error.message);
         } else {
           // The payment has been processed!
           if (result.paymentIntent.status === 'succeeded') {
             // Show a success message to your customer
-            alert({ success: true });
             this.cart.empty()
             this.dialogRef.close();
+            this.router.navigate(['/success'])
           }
         }
       });
