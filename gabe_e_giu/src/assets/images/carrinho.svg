@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136.62 136.62">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #440f21;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #440f21;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2.62px;
+      }
+    </style>
+  </defs>
+  <g id="Arte">
+    <g>
+      <g>
+        <polyline class="cls-2" points="24.39 41.5 44.24 41.5 57.09 73.03 86.28 73.03 99.13 50.84"/>
+        <polyline class="cls-2" points="57.09 73.03 47.75 87.19 93.29 87.19"/>
+        <circle class="cls-1" cx="51.36" cy="101.32" r="8.43"/>
+        <circle class="cls-1" cx="87.27" cy="101.32" r="8.43"/>
+      </g>
+      <line class="cls-2" x1="72.49" y1="41.5" x2="72.49" y2="57.27"/>
+      <line class="cls-2" x1="80.37" y1="49.38" x2="64.6" y2="49.38"/>
+      <circle class="cls-2" cx="68.31" cy="68.31" r="67"/>
+    </g>
+  </g>
+</svg>
