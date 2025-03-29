@@ -1,6 +1,6 @@
 <div class="main">
     <app-menu class="menu"></app-menu>
-    <app-filter-search class="filter_search"></app-filter-search>
+    <app-filter-search class="filter_search" (searchTerm)="searchUpdated($event)"></app-filter-search>
     <ng-container *ngIf="!has_items">
         <div class="no_items">
             no items in here

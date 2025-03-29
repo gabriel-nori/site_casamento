@@ -51,8 +51,8 @@ export class PaymentModalComponent implements OnInit {
   private readonly stripe_service = new StripeService();
 
   paymentElementForm = this.fb.group({
-    name: ['John doe', [Validators.required]],
-    email: ['support@ngx-stripe.dev', [Validators.required]],
+    name: ['', [Validators.required]],
+    email: ['', [Validators.required]],
     address: [''],
     zipcode: [''],
     city: [''],
@@ -122,9 +122,14 @@ export class PaymentModalComponent implements OnInit {
           // The payment has been processed!
           if (result.paymentIntent.status === 'succeeded') {
             // Show a success message to your customer
-            this.cart.empty()
-            this.dialogRef.close();
-            this.router.navigate(['/success'])
+            this.cart.sendCartPurchase(
+              email as string,
+              name as string
+            ).then(()=>{
+              this.cart.empty()
+              this.dialogRef.close();
+              this.router.navigate(['/success'])
+            })
           }
         }
       });

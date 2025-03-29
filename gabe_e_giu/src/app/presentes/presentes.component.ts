@@ -27,4 +27,8 @@ export class PresentesComponent implements OnInit{
     this.has_items = this.products.length > 0
   }
 
+  async searchUpdated(term: string) {
+    this.products = await this.product_service.filter({search_term: term})
+  }
+
 }
