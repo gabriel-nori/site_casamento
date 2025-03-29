@@ -1,7 +1,7 @@
 <div class="search_container">
     <mat-form-field appearance="outline" class="search_bar">
         <mat-label>Buscar</mat-label>
-        <input matInput [(ngModel)]="searchQuery" placeholder="Digite para buscar...">
+        <input matInput [(ngModel)]="searchQuery" (ngModelChange)="updateSearch($event)" placeholder="Digite para buscar...">
         <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     <mat-icon class="filter_icon">filter_list</mat-icon>

@@ -1,8 +1,8 @@
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
-import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 
 @Component({
@@ -21,19 +21,9 @@ export class FilterSearchComponent {
   searchQuery: string = '';
   selectedCategory: string = '';
 
-  categories: string[] = ['Eletrônicos', 'Roupas', 'Livros', 'Brinquedos'];
+  @Output() searchTerm = new EventEmitter<string>()
 
-  items = [
-    { name: 'Notebook', category: 'Eletrônicos' },
-    { name: 'Camiseta', category: 'Roupas' },
-    { name: 'Livro Angular', category: 'Livros' },
-    { name: 'Boneca', category: 'Brinquedos' }
-  ];
-
-  filteredItems() {
-    return this.items.filter(item => 
-      (this.selectedCategory === '' || item.category === this.selectedCategory) &&
-      (this.searchQuery === '' || item.name.toLowerCase().includes(this.searchQuery.toLowerCase()))
-    );
+  updateSearch(value: string) {
+    this.searchTerm.emit(value);
   }
 }

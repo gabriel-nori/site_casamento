@@ -80,10 +80,8 @@ export class CacheService<T> {
 
     public async getDataAutomatic(): Promise<T[]> {
         if(this.isValid()){
-            console.log(`${this.cache_key} was used to get element`)
             return Promise.resolve(this.cache.data)
         }
-        console.log("getting data from server")
         return await this.updateFromServer()
     }
 

@@ -7,3 +7,16 @@ export interface product {
     category: string
     type: string
 }
+
+export interface Categories {
+    [key: string]: string[]
+}
+
+export interface Types {
+    [key: string]: string[]
+}
+
+export interface Tags {
+    name: string,
+    products: number[]
+}
