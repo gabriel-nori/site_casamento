@@ -76,3 +76,17 @@
 .menu_holder {
     background-color: #fcb1ca;
 }
+
+.fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #a4b0c4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #440f21;
+}

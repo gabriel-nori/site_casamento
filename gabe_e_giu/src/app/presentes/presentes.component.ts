@@ -5,6 +5,8 @@ import { CardPresenteComponent } from '../card-presente/card-presente.component'
 import { CommonModule } from '@angular/common';
 import { FilterSearchComponent } from '../filter-search/filter-search.component';
 import { MenuComponent } from '../menu/menu.component';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-presentes',
@@ -12,7 +14,9 @@ import { MenuComponent } from '../menu/menu.component';
     CommonModule,
     CardPresenteComponent,
     FilterSearchComponent,
-    MenuComponent
+    MenuComponent,
+    MatIconModule,
+    RouterModule
   ],
   templateUrl: './presentes.component.html',
   styleUrl: './presentes.component.css'
