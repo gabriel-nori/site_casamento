@@ -17,29 +17,31 @@
     <div class="menu_spacer" (click)="toggle_menu()"></div>
     <nav class="menu">
         <ul>
-            <a [routerLink]="['/']" routerLinkActive="active" (click)="toggle_menu()">
-                <li>
+            <li>
+                <a [routerLink]="['/']" routerLinkActive="active" (click)="toggle_menu()">
                     Home
-                </li>
-            </a>
-            <a [routerLink]="['/dicas']" routerLinkActive="active" (click)="toggle_menu()">
-                <li>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/dicas']" routerLinkActive="active" (click)="toggle_menu()">
                     Dicas
-                </li>
-            </a>
-            <a [routerLink]="['/recomendacoes']" routerLinkActive="active" (click)="toggle_menu()">
-                <li>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/recomendacoes']" routerLinkActive="active" (click)="toggle_menu()">
                     Recomendações
-                </li>
-            </a>
-            <a [routerLink]="['/presentes']" routerLinkActive="active" (click)="toggle_menu()">
-                <li>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/presentes']" routerLinkActive="active" (click)="toggle_menu()">
                     Presentes
-                </li>
-            </a>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/cart']" routerLinkActive="cart_active">
+                    <mat-icon class="cart" (click)="toggle_menu()">shopping_cart</mat-icon>
+                </a>
+            </li>
         </ul>
     </nav>
-    <a [routerLink]="['/cart']" routerLinkActive="cart_active">
-        <mat-icon class="cart" (click)="toggle_menu()">shopping_cart</mat-icon>
-    </a>
 </div>

@@ -1,8 +1,8 @@
 * {
-    font-weight: 100;
     font-family: Montserrat, "Open Sans", Helvetica, Arial, sans-serif;
     padding: 0;
     margin: 0;
+    text-transform: uppercase;
 }
 
 a {
@@ -33,6 +33,7 @@ a {
     display: flex;
     flex-direction: row;
     margin: auto;
+    background-color: transparent;
 }
 
 .menu_holder {
@@ -47,22 +48,20 @@ a {
 }
 
 .menu ul li {
+    text-align: center;
     list-style: none;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #00000033;
+    margin-top: 45px;
+    font-kerning: 100;
 }
 
-.menu ul a {
+.menu ul li a {
     text-decoration: none;
-    color: #000000;
+    color: #440f21;
 }
 
 .active {
     cursor: default;
-    color: rgba(20, 20, 20, 0.801);
-    background-color: #00000065;
+    font-weight: bold;
 }
 
 .menu_opener {
@@ -97,10 +96,9 @@ a {
 
     .menu {
         padding: 0;
-        padding-top: 50px;
         width: 50%;
         height: 100%;
-        background-color: #FFF;
+        background-color: #f2dcd6;
         display: flex;
         flex-direction: column;
         -webkit-box-shadow: -7px 3px 88px -26px rgba(0, 0, 0, 0.75);
@@ -113,9 +111,7 @@ a {
     }
 
     .cart {
-        position: absolute;
-        bottom: 50px;
-        right: 50px;
+        font-weight: normal;
         color: #000000;
     }
 

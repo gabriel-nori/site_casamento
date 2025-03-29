@@ -1,10 +1,19 @@
 <div class="main">
-    <app-menu class="menu"></app-menu>
-    <app-filter-search class="filter_search" (searchTerm)="searchUpdated($event)"></app-filter-search>
-    <ng-container *ngIf="!has_items">
-        <div class="no_items">
-            no items in here
+    <div class="menu_holder"><app-menu class="menu"></app-menu></div>
+    <div class="first_container">
+        <div class="title_holder">
+            <p class="title_text upper_text">LISTA de PRESENTES
+            </p>
         </div>
-    </ng-container>
-    <app-card-presente *ngFor="let product of products" [product]="product" class="product_card"></app-card-presente>
+    </div>
+    <app-filter-search class="filter_search" (searchTerm)="searchUpdated($event)"></app-filter-search>
+    <div class="presentes">
+        <ng-container *ngIf="!has_items">
+            <div class="no_items">
+                no items in here
+            </div>
+        </ng-container>
+        <app-card-presente *ngFor="let product of products" [product]="product"
+            class="product_card"></app-card-presente>
+    </div>
 </div>
