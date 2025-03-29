@@ -94,3 +94,50 @@
     font-size: 0.6rem;
     padding-right: 20px;
 }
+
+.dress_code_circle_thing {
+    border-radius: 50% 50% 0 0;
+    /* -moz-border-radius: 200px 200px 10px 10px;
+    -webkit-border-radius: 200px 200px 10px 10px; */
+    border: none;
+    background-color: #da5e27;
+    padding-top: 200px;
+    width: 100%;
+}
+
+.dress_code_holder {
+    width: 100%;
+    background-color: #da5e27;
+    margin: 0;
+    padding: 0;
+}
+
+.dress_code_text_holder{
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.dress_code_title{
+    font-family: 'Bigilla', sans-serif;
+    font-size: 5rem;
+}
+
+.dress_code_side_text{
+    font-size: 0.6rem;
+}
+
+.dress_code_images {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+
+.dress_code_image {
+    width: 26.67%;
+}
