@@ -2,11 +2,14 @@
     font-family: Montserrat, "Open Sans", Helvetica, Arial, sans-serif;
     padding: 0;
     margin: 0;
-    text-transform: uppercase;
 }
 
 a {
     text-decoration: none;
+}
+
+.uppercase {
+    text-transform: uppercase;
 }
 
 .name {
@@ -27,6 +30,7 @@ a {
     align-self: self-start;
     padding-left: 20px;
 }
+
 .menu_bar {
     height: 50px;
     width: 100%;
