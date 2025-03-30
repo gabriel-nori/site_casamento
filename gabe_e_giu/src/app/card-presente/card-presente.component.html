@@ -1,9 +1,9 @@
 <div class="card box_shaddow round_border">
     <div class="inner">
-        <img [src]="product.photo_path" alt="" class="cover_img" (click)="openModal()">
-        <h3 class="title" (click)="openModal()">{{ product.name }}</h3>
-        <p class="price">{{ product.description }}</p>
-        <p class="price" (click)="openModal()">{{ converter.autoString(product.price_cents / 100) }}</p>
+        <img [src]="product.photo_path" alt="" class="cover_img">
+        <h3 class="title">{{ product.name }}</h3>
+        <p class="description">{{ product.description }}</p>
+        <p class="price">{{ converter.autoString(product.price_cents / 100) }}</p>
         <app-cart-add-button class="cart_add" [product]="product"></app-cart-add-button>
     </div>
 </div>
