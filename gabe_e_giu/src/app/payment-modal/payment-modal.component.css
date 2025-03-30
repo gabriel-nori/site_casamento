@@ -53,6 +53,11 @@
     animation: rotation 1.5s linear infinite;
 }
 
+.payment_error_text {
+    font-size: 1rem;
+    color: #FF0000;
+}
+
 @keyframes rotation {
     0% {
         transform: rotate(0deg);

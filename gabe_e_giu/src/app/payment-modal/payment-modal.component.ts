@@ -55,6 +55,7 @@ export class PaymentModalComponent implements OnInit {
   private readonly stripe_service = new StripeService();
   stepIndex = 0;
   loading: boolean = true
+  payment_error: string|undefined = undefined
 
   goNext() {
     this.stepIndex++;
@@ -128,8 +129,7 @@ export class PaymentModalComponent implements OnInit {
       .subscribe(result => {
         this.paying.set(false);
         if (result.error) {
-          // Show error to your customer (e.g., insufficient funds)
-          alert(result.error.message);
+          this.payment_error = result.error.message
         } else {
           // The payment has been processed!
           if (result.paymentIntent.status === 'succeeded') {

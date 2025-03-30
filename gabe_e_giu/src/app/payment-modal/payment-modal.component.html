@@ -37,6 +37,13 @@
                     <ngx-stripe-payment [options]="paymentElementOptions" />
                 </ngx-stripe-elements>
                 }
+                <p class="payment_error_text" *ngIf="payment_error">
+                    Erro no processamento:
+                    <br>
+                    {{payment_error}}
+                    <br>
+                    tente novamente ou selecione outro cartão
+                </p>
                 <button (click)="pay()"><mat-icon>payments</mat-icon></button>
             </mat-step>
         </div>
