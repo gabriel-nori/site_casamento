@@ -9,8 +9,7 @@
     <div class="filter_search_holder">
         <app-filter-search
             class="filter_search"
-            (searchTerm)="searchUpdated($event)"
-            (order)="orderUpdated($event)"
+           (filter)="applyFilter($event)"
         ></app-filter-search>
     </div>
     <div class="presentes">

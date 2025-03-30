@@ -38,5 +38,6 @@ export interface OrderFilter {
     key: string,
     order: "asc"|"desc"
     name: string
-    field_type: "string"|"number"
+    field_type: "string"|"number",
+    default?: boolean
 }

@@ -7,6 +7,7 @@ import { FilterSearchComponent } from '../filter-search/filter-search.component'
 import { MenuComponent } from '../menu/menu.component';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { CartService } from '@services/cart.service';
 
 @Component({
   selector: 'app-presentes',
@@ -22,55 +23,29 @@ import { RouterModule } from '@angular/router';
   styleUrl: './presentes.component.css'
 })
 export class PresentesComponent implements OnInit{
+  private cart: CartService = new CartService()
   product_service: ProductService = new ProductService()
   products: product[] = []
   has_items: boolean = false
-  filter_obj: ProductFilter = {
-    order:{
-      key: "id",
-      field_type: 'number',
-      name: "Padrão",
-      order: 'asc'
-    }
-  }
-  filter_map: OrderKey = {
-    "padrao": {
-      key: "id",
-      field_type: 'number',
-      name: "Padrão",
-      order: 'asc'
-    },
-    "low_price": {
-      key: "price_cents",
-      order: "asc",
-      field_type: 'number',
-      name: "Menor preço"
-    },
-    "high_price": {
-      key: "price_cents",
-      order: "desc",
-      field_type: 'number',
-      name: "Maior preço"
-    }
-  }
+  filter_options: OrderKey = this.cart.getOrderingKeys()
 
   async ngOnInit() {
     this.products = await this.product_service.getProducts()
     this.has_items = this.products.length > 0
   }
 
-  searchUpdated(term: string) {
-    this.filter_obj["search_term"] = term
-    this.applyFilter()
-  }
+  // searchUpdated(term: string) {
+  //   this.filter_obj["search_term"] = term
+  //   this.applyFilter()
+  // }
 
-  orderUpdated(filter: string) {
-    this.filter_obj["order"] = this.filter_map[filter]
-    this.applyFilter()
-  }
+  // orderUpdated(filter: string) {
+  //   this.filter_obj["order"] = this.filter_map[filter]
+  //   this.applyFilter()
+  // }
 
-  async applyFilter() {
-    this.products = await this.product_service.filter(this.filter_obj)
+  async applyFilter(filter: ProductFilter) {
+    this.products = await this.product_service.filter(filter)
   }
 
 }
