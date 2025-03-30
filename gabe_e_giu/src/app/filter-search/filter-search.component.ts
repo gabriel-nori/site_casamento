@@ -3,7 +3,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { Component, Output, EventEmitter } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms'
+import { FormControl, FormGroup, FormsModule } from '@angular/forms'
+import { FilterSearchModalComponent } from '../filter-search-modal/filter-search-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-filter-search',
@@ -12,18 +14,34 @@ import { FormsModule } from '@angular/forms'
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
   ],
   templateUrl: './filter-search.component.html',
   styleUrl: './filter-search.component.css'
 })
 export class FilterSearchComponent {
+  constructor(public dialog: MatDialog) {}
   searchQuery: string = '';
   selectedCategory: string = '';
+  selectedOption = 'op1'; // Valor inicial
+
+  radioForm = new FormGroup({
+    option: new FormControl('op1') // Valor inicial
+  });
 
   @Output() searchTerm = new EventEmitter<string>()
 
   updateSearch(value: string) {
     this.searchTerm.emit(value);
+  }
+
+  openFilterModal(): void {
+    this.dialog.open(FilterSearchModalComponent, {
+          width: '90%',
+          height: '90%',
+          maxHeight: '750px',
+          maxWidth: '400',
+          data: {}
+        });
   }
 }

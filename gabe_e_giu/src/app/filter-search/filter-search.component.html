@@ -1,8 +1,32 @@
 <div class="search_container">
-    <mat-form-field appearance="outline" class="search_bar">
-        <mat-label>Buscar</mat-label>
-        <input matInput [(ngModel)]="searchQuery" (ngModelChange)="updateSearch($event)" placeholder="Digite para buscar...">
-        <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-    <mat-icon class="filter_icon">filter_list</mat-icon>
+    <div class="input-icons">
+        <i class="fa fa-user icon"> <mat-icon matSuffix>search</mat-icon></i>
+        <input class="input-field" type="text" placeholder="Buscar" [(ngModel)]="searchQuery"
+            (ngModelChange)="updateSearch($event)">
+    </div>
+    <div class="dropdown">
+        <label for="order-select">ORDENAR POR:</label>
+        <select id="order-select" class="styled-select">
+            <option value="padrao" selected>Padrão</option>
+            <option value="maior">Maior Preço</option>
+            <option value="menor">Menor Preço</option>
+        </select>
+    </div>
+    <div class="moeda">
+        <label>MOEDA:</label>
+        <div class="moeda_select">
+            <label>
+                R$
+                <input type="radio" name="option" [(ngModel)]="selectedOption" value="op1">
+            </label>
+
+            <label>
+                USD
+                <input type="radio" name="option" [(ngModel)]="selectedOption" value="op2">
+            </label>
+        </div>
+
+    </div>
+
+    <mat-icon class="filter_icon" (click)="openFilterModal()">filter_list</mat-icon>
 </div>

@@ -69,6 +69,12 @@
     width: 100%;
 }
 
+.filter_search_holder {
+    margin-top: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
 .menu {
     width: 100%;
 }

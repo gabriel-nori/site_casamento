@@ -3,13 +3,137 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-evenly;
+    gap: 10px;
 }
 
-.search_bar{
+.search_bar {
     flex-grow: 1;
+    width: 90%;
+    border-radius: 20%;
+}
+
+.round_search {
+    border-radius: 20%;
+    border-color: #c9c9c9;
+    border-width: 1px;
 }
 
 .filter_icon {
     margin-left: 10px;
+    color: #c9c9c9;
 }
+
+.input-icons {
+    width: 90%;
+    min-height: 35px;
+}
+
+.input-icons i {
+    position: absolute;
+}
+
+.icon {
+    padding: 10px;
+    color: #c9c9c9;
+    min-width: 50px;
+    text-align: center;
+}
+
+.input-field {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    min-height: 35px;
+    border-radius: 25px;
+    border-color: #c9c9c9;
+    border-width: 1px;
+}
+
+.input-field::placeholder {
+    color: #c9c9c9;
+}
+
+/* Container */
+.dropdown {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+/* Label */
+label {
+    font-style: italic;
+    font-weight: 300;
+    color: #bbb;
+    margin-right: 10px;
+}
+
+/* Select Dropdown */
+.styled-select {
+    background: #f8f8f8;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #999;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    outline: none;
+    width: 180px;
+}
+
+/* Custom Arrow */
+.styled-select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' fill='%23999'><path d='M7 10l5 5 5-5H7z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 30px;
+    padding-right: 30px;
+}
+
+/* Hover and Focus */
+.styled-select:hover,
+.styled-select:focus {
+    border-color: #999;
+}
+
+.moeda {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #c9c9c9;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+  }
+  
+  input[type="radio"]:checked {
+    background-color: #c9c9c9;
+  }
+  
+  input[type="radio"]::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
+  
+  input[type="radio"]:checked::before {
+    display: block;
+  }

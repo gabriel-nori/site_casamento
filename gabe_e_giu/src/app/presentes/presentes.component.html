@@ -6,7 +6,9 @@
             </p>
         </div>
     </div>
-    <app-filter-search class="filter_search" (searchTerm)="searchUpdated($event)"></app-filter-search>
+    <div class="filter_search_holder">
+        <app-filter-search class="filter_search" (searchTerm)="searchUpdated($event)"></app-filter-search>
+    </div>
     <div class="presentes">
         <ng-container *ngIf="!has_items">
             <div class="no_items">
