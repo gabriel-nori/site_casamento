@@ -6,10 +6,10 @@
     </div>
     <div class="dropdown">
         <label for="order-select">ORDENAR POR:</label>
-        <select id="order-select" class="styled-select">
+        <select id="order-select" class="styled-select" (change)="updateOrder($event)">
             <option value="padrao" selected>Padrão</option>
-            <option value="maior">Maior Preço</option>
-            <option value="menor">Menor Preço</option>
+            <option value="high_price">Maior Preço</option>
+            <option value="low_price">Menor Preço</option>
         </select>
     </div>
     <div class="moeda">
@@ -17,12 +17,12 @@
         <div class="moeda_select">
             <label>
                 R$
-                <input type="radio" name="option" [(ngModel)]="selectedOption" value="op1">
+                <input type="radio" name="option" [(ngModel)]="selectedOption" value="R$">
             </label>
 
             <label>
                 USD
-                <input type="radio" name="option" [(ngModel)]="selectedOption" value="op2">
+                <input type="radio" name="option" [(ngModel)]="selectedOption" value="USD">
             </label>
         </div>
 

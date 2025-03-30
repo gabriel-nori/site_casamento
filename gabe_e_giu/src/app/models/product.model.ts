@@ -20,3 +20,23 @@ export interface Tags {
     name: string,
     products: number[]
 }
+
+export interface ProductFilter {
+    tags?: string[]
+    id?: number[]
+    types?: string[]
+    categories?: string[]
+    search_term?: string
+    order: OrderFilter
+}
+
+export interface OrderKey {
+    [key: string]: OrderFilter
+}
+
+export interface OrderFilter {
+    key: string,
+    order: "asc"|"desc"
+    name: string
+    field_type: "string"|"number"
+}

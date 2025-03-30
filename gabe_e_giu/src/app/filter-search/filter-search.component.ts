@@ -23,16 +23,22 @@ export class FilterSearchComponent {
   constructor(public dialog: MatDialog) {}
   searchQuery: string = '';
   selectedCategory: string = '';
-  selectedOption = 'op1'; // Valor inicial
+  selectedOption = 'R$'; // Valor inicial
 
   radioForm = new FormGroup({
     option: new FormControl('op1') // Valor inicial
   });
 
   @Output() searchTerm = new EventEmitter<string>()
+  @Output() order = new EventEmitter<string>()
 
   updateSearch(value: string) {
     this.searchTerm.emit(value);
+  }
+
+  updateOrder(event: Event) {
+    const value = (event.target as HTMLSelectElement).value;
+    this.order.emit(value)
   }
 
   openFilterModal(): void {
