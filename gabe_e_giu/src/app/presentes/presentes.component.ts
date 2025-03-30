@@ -8,6 +8,7 @@ import { MenuComponent } from '../menu/menu.component';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { CartService } from '@services/cart.service';
+import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({
   selector: 'app-presentes',
@@ -17,7 +18,8 @@ import { CartService } from '@services/cart.service';
     FilterSearchComponent,
     MenuComponent,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    SpinnerComponent
   ],
   templateUrl: './presentes.component.html',
   styleUrl: './presentes.component.css'
@@ -28,10 +30,12 @@ export class PresentesComponent implements OnInit{
   products: product[] = []
   has_items: boolean = false
   filter_options: OrderKey = this.cart.getOrderingKeys()
+  loading: boolean = true
 
   async ngOnInit() {
     this.products = await this.product_service.getProducts()
     this.has_items = this.products.length > 0
+    this.loading = false
   }
 
   // searchUpdated(term: string) {
@@ -45,7 +49,9 @@ export class PresentesComponent implements OnInit{
   // }
 
   async applyFilter(filter: ProductFilter) {
+    this.loading = true
     this.products = await this.product_service.filter(filter)
+    this.loading = false
   }
 
 }

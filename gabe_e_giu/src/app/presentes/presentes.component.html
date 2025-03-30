@@ -13,6 +13,7 @@
         ></app-filter-search>
     </div>
     <div class="presentes">
+        <app-spinner *ngIf="loading"></app-spinner>
         <ng-container *ngIf="!has_items">
             <div class="no_items">
                 no items in here
