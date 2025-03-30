@@ -8,11 +8,11 @@
                 </div>
                 <div class="secondary_item_data">
                     <p class="item_name">{{item.name}}</p>
-                    <p class="unit_cost">R$ {{item.price_cents/100}} X <span
+                    <p class="unit_cost">{{converter.autoString(item.price_cents/100)}} X <span
                             class="quantity_text">{{item.quantity}}</span>
                     </p>
                     <div class="bottom_details">
-                        <p class="total_value">Total: R$ {{item.total_cents/100}}</p>
+                        <p class="total_value">Total: {{converter.autoString(item.total_cents/100)}}</p>
                         <div class="actions">
                             <mat-icon class="edit mat-icon-small" (click)="edit_item(item)">edit</mat-icon>
                             <mat-icon class="remove mat-icon-small" (click)="remove_item(item)">delete</mat-icon>
@@ -26,7 +26,7 @@
                 <!-- <p class="item_count_text">Items</p>
             <span class="item_count_ammount">{{cart_data.item_count}}</span>
             <p class="total_ammount_text">Valor</p> -->
-                <p class="total_ammount_value">R$ {{cart_data.total/100}}</p>
+                <p class="total_ammount_value">{{converter.autoString(cart_data.total/100)}}</p>
             </div>
             <div class="button-container">
                 <button mat-fab color="primary" class="next-button" (click)="payCart()">

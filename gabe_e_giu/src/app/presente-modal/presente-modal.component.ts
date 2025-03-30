@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { product } from '@models/product.model';
 import { CartAddButtonComponent } from '../cart-add-button/cart-add-button.component';
 import { CartProductInterface } from '@models/cart.model';
+import { MoneyConverter } from '@services/money_converter.service';
 
 @Component({
   selector: 'app-presente-modal',
@@ -19,6 +20,7 @@ import { CartProductInterface } from '@models/cart.model';
   styleUrl: './presente-modal.component.css'
 })
 export class PresenteModalComponent {
+   protected converter: MoneyConverter = new MoneyConverter()
   constructor(
     public dialogRef: MatDialogRef<PresenteModalComponent>,
     @Inject(MAT_DIALOG_DATA) protected data: {

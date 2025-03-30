@@ -27,11 +27,16 @@ export class MoneyConverter {
         }
         else {
             value = value/this.currencies[to as keyof typeof this.currencies].factor
-            return parseFloat(value.toFixed(0))
+            return parseFloat(value.toFixed(2))
         }
     }
 
     public autoConvert(value: number): number {
         return this.convert(value, this.preferences.getPreferences().currency ?? "R$")
+    }
+
+    public autoString(value: number): string {
+        let currency = this.preferences.getPreferences().currency ?? "R$"
+        return `${currency} ${this.convert(value, currency)}`
     }
 }

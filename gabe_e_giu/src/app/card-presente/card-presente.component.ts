@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog'
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { PresenteModalComponent } from '../presente-modal/presente-modal.component'
+import { MoneyConverter } from '@services/money_converter.service';
 
 @Component({
   selector: 'app-card-presente',
@@ -20,6 +21,7 @@ import { PresenteModalComponent } from '../presente-modal/presente-modal.compone
 })
 
 export class CardPresenteComponent {
+   protected converter: MoneyConverter = new MoneyConverter()
   @Input() product: product = {
     id: 1,
     photo_path: "",

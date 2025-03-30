@@ -53,17 +53,17 @@ export class ProductService {
         //     }
         // }
 
-        if("currency" in filter_by){
-            filtered.forEach(
-                product => {
-                    product.price_cents = this.converter.convert(
-                        product.price_cents,
-                        filter_by.currency
-                    )
-                    product.currency = filter_by.currency
-                }
-            )
-        }
+        // if("currency" in filter_by){
+        //     filtered.forEach(
+        //         product => {
+        //             product.price_cents = this.converter.convert(
+        //                 product.price_cents,
+        //                 filter_by.currency
+        //             )
+        //             product.currency = filter_by.currency
+        //         }
+        //     )
+        // }
 
         if ("order" in filter_by) {
             const key = filter_by["order"].key as keyof typeof filtered[0];

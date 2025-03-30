@@ -3,7 +3,7 @@
   <img [src]="data.item.photo_path" alt="" class="cover_img">
   <h3>{{ data.item.name }}</h3>
   <p>{{data.item.description}}</p>
-  <p>Price: {{data.item.currency ?? "R$"}} {{ data.item.price_cents / 100 }}</p>
+  <p>Price: {{converter.autoString(data.item.price_cents/100)}}</p>
   <div class="cart_add_holder">
     <app-cart-add-button class="cart_add" [product]="data.item" [editMode]="!data.include"></app-cart-add-button>
   </div>

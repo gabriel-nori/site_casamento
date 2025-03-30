@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MenuComponent } from '../menu/menu.component';
 import { PaymentModalComponent } from '../payment-modal/payment-modal.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MoneyConverter } from '@services/money_converter.service';
 
 @Component({
   selector: 'app-cart',
@@ -32,6 +33,7 @@ export class CartComponent implements OnInit{
 
   protected cart_items: CartProductInterface[] = []
   protected cart_data: cartInterface = {total: 0, item_count: 0, items: {}}
+  protected converter: MoneyConverter = new MoneyConverter()
 
   ngOnInit() {
     this.loadCartItems()
