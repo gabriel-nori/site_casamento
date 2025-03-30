@@ -2,41 +2,56 @@
 <mat-dialog-content>
     <mat-horizontal-stepper #stepper [(selectedIndex)]="stepIndex">
         <div [formGroup]="paymentElementForm">
-            <mat-step label="Primeiro Passo">
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-icon matSuffix>person</mat-icon>
-                    <mat-label>nome</mat-label>
-                    <input matInput placeholder="nome" formControlName="name" />
-                </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-icon matSuffix>email</mat-icon>
-                    <mat-label>email</mat-label>
-                    <input matInput placeholder="nome@exemplo.com.br" type="email" formControlName="email" />
-                </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-icon matSuffix>map</mat-icon>
-                    <mat-label>endereço</mat-label>
-                    <input matInput placeholder="rua..." formControlName="address" />
-                </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-icon matSuffix>map</mat-icon>
-                    <mat-label>CEP</mat-label>
-                    <input matInput placeholder="CEP" formControlName="zipcode" />
-                </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-icon matSuffix>location_city</mat-icon>
-                    <mat-label>cidade</mat-label>
-                    <input matInput placeholder="cidade" formControlName="city" />
-                </mat-form-field>
-                <mat-icon mat-button (click)="goNext()">arrow_forward_ios</mat-icon>
+            <mat-step label="Primeiro Passo" class="custom-step">
+                <div class="form-container">
+                    <mat-form-field appearance="outline">
+                        <mat-icon matPrefix>person</mat-icon>
+                        <mat-label>Nome</mat-label>
+                        <input matInput placeholder="Digite seu nome" formControlName="name" />
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-icon matPrefix>email</mat-icon>
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="nome@exemplo.com.br" type="email" formControlName="email" />
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-icon matPrefix>map</mat-icon>
+                        <mat-label>Endereço</mat-label>
+                        <input matInput placeholder="Rua, número, bairro..." formControlName="address" />
+                    </mat-form-field>
+
+                    <div class="half-width">
+                        <mat-form-field appearance="outline">
+                            <mat-icon matPrefix>map</mat-icon>
+                            <mat-label>CEP</mat-label>
+                            <input matInput placeholder="00000-000" formControlName="zipcode" />
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-icon matPrefix>location_city</mat-icon>
+                            <mat-label>Cidade</mat-label>
+                            <input matInput placeholder="Sua cidade" formControlName="city" />
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button mat-fab color="primary" class="next-button" (click)="goNext()">
+                        <mat-icon>arrow_forward_ios</mat-icon>
+                    </button>
+                </div>
             </mat-step>
 
             <mat-step label="Segundo Passo">
-                @if (elementsOptions.clientSecret) {
-                <ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
-                    <ngx-stripe-payment [options]="paymentElementOptions" />
-                </ngx-stripe-elements>
-                }
+                <div class="card_inquire">
+                    @if (elementsOptions.clientSecret) {
+                    <ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
+                        <ngx-stripe-payment [options]="paymentElementOptions" />
+                    </ngx-stripe-elements>
+                    }
+                </div>
                 <p class="payment_error_text" *ngIf="payment_error">
                     Erro no processamento:
                     <br>
@@ -44,7 +59,11 @@
                     <br>
                     tente novamente ou selecione outro cartão
                 </p>
-                <button (click)="pay()"><mat-icon>payments</mat-icon></button>
+                <div class="button-container">
+                    <button mat-fab color="primary" class="next-button" (click)="pay()">
+                        <mat-icon>payments</mat-icon>
+                    </button>
+                </div>
             </mat-step>
         </div>
     </mat-horizontal-stepper>
