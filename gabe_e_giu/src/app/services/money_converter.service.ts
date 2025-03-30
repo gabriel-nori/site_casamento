@@ -37,6 +37,13 @@ export class MoneyConverter {
 
     public autoString(value: number): string {
         let currency = this.preferences.getPreferences().currency ?? "R$"
-        return `${currency} ${this.convert(value, currency)}`
+        const converted = this.convert(value, currency).toLocaleString(currency == "R$" ? "en-US" : "pt-BR", {
+            style: 'currency',
+            currency: currency == "R$" ? 'BRL' : 'USD',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        });
+        // return `${currency} ${this.convert(value, currency)}`
+        return converted
     }
 }
