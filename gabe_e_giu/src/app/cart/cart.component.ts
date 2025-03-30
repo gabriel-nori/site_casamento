@@ -9,13 +9,15 @@ import { ConfirmationMessageComponent } from '../confirmation-message/confirmati
 import { MatIconModule } from '@angular/material/icon';
 import { MenuComponent } from '../menu/menu.component';
 import { PaymentModalComponent } from '../payment-modal/payment-modal.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-cart',
   imports: [
     CommonModule,
     MatIconModule,
-    MenuComponent
+    MenuComponent,
+    MatButtonModule
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'

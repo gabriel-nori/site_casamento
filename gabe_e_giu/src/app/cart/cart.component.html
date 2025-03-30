@@ -28,7 +28,12 @@
             <p class="total_ammount_text">Valor</p> -->
                 <p class="total_ammount_value">R$ {{cart_data.total/100}}</p>
             </div>
-            <button class="checkout_btn" (click)="payCart()">Checkout <mat-icon>attach_money</mat-icon> </button>
+            <div class="button-container">
+                <button mat-fab color="primary" class="next-button" (click)="payCart()">
+                    <mat-icon>shopping_cart_checkout</mat-icon>
+                </button>
+            </div>
+            <!-- <button class="checkout_btn" (click)="payCart()">Checkout <mat-icon>shopping_cart_checkout</mat-icon> </button> -->
         </ng-container>
         <ng-container *ngIf="cart_items.length == 0">
             <img src="/assets/images/empty_cart.webp" alt="" class="empty_cart_img">
