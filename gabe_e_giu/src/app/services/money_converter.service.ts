@@ -1,4 +1,7 @@
+import { Preferences } from "./preferences.service"
+
 export class MoneyConverter {
+    private preferences: Preferences = new Preferences()
     private currencies: {[key: string]: {name: string, factor: number}} = {
         "R$": {
             name: "R$",
@@ -26,5 +29,9 @@ export class MoneyConverter {
             value = value/this.currencies[to as keyof typeof this.currencies].factor
             return parseFloat(value.toFixed(0))
         }
+    }
+
+    public autoConvert(value: number): number {
+        return this.convert(value, this.preferences.getPreferences().currency ?? "R$")
     }
 }

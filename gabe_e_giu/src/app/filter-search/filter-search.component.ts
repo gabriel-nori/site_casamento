@@ -8,6 +8,7 @@ import { FilterSearchModalComponent } from '../filter-search-modal/filter-search
 import { MatDialog } from '@angular/material/dialog';
 import { OrderKey, ProductFilter } from '@models/product.model';
 import { CartService } from '@services/cart.service';
+import { Preferences } from '@services/preferences.service';
 
 @Component({
   selector: 'app-filter-search',
@@ -25,11 +26,12 @@ export class FilterSearchComponent {
   constructor(public dialog: MatDialog) {}
   searchQuery: string = '';
   selectedCategory: string = '';
-  selectedOption = 'R$'; // Valor inicial
   private cart: CartService = new CartService()
+  private preferences: Preferences = new Preferences()
+  selectedOption = this.preferences.getPreferences().currency ?? "R$"; // Valor inicial
 
   radioForm = new FormGroup({
-    option: new FormControl('op1') // Valor inicial
+    option: new FormControl(this.preferences.getPreferences().currency ?? "R$") // Valor inicial
   });
 
   @Output() searchTerm = new EventEmitter<string>()
@@ -71,6 +73,7 @@ export class FilterSearchComponent {
 
   updateCurrency() {
     this.filter_obj.currency = this.selectedOption
+    this.preferences.updateProperty({key:"currency", value: this.selectedOption})
     this.filter.emit(this.filter_obj)
   }
 }
