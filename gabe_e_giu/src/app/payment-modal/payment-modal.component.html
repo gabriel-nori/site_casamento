@@ -1,23 +1,34 @@
 <h2 mat-dialog-title>Pagamento</h2>
 <mat-dialog-content>
-    <mat-horizontal-stepper #stepper>
+    <mat-horizontal-stepper #stepper [(selectedIndex)]="stepIndex">
         <div [formGroup]="paymentElementForm">
             <mat-step label="Primeiro Passo">
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <input matInput placeholder="name" formControlName="name" />
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-label>nome</mat-label>
+                    <input matInput placeholder="nome" formControlName="name" />
                 </mat-form-field>
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <input matInput placeholder="Email" type="email" formControlName="email" />
+                    <mat-icon matSuffix>email</mat-icon>
+                    <mat-label>email</mat-label>
+                    <input matInput placeholder="nome@exemplo.com.br" type="email" formControlName="email" />
                 </mat-form-field>
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <input matInput placeholder="Address" formControlName="address" />
+                    <mat-icon matSuffix>map</mat-icon>
+                    <mat-label>endereço</mat-label>
+                    <input matInput placeholder="rua..." formControlName="address" />
                 </mat-form-field>
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <input matInput placeholder="ZIP Code" formControlName="zipcode" />
+                    <mat-icon matSuffix>map</mat-icon>
+                    <mat-label>CEP</mat-label>
+                    <input matInput placeholder="CEP" formControlName="zipcode" />
                 </mat-form-field>
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <input matInput placeholder="city" formControlName="city" />
+                    <mat-icon matSuffix>location_city</mat-icon>
+                    <mat-label>cidade</mat-label>
+                    <input matInput placeholder="cidade" formControlName="city" />
                 </mat-form-field>
+                <button mat-button (click)="goNext()">next</button>
             </mat-step>
 
             <mat-step label="Segundo Passo">

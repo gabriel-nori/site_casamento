@@ -49,6 +49,11 @@ export class PaymentModalComponent implements OnInit {
 
   private readonly fb = inject(UntypedFormBuilder);
   private readonly stripe_service = new StripeService();
+  stepIndex = 0;
+
+  goNext() {
+    this.stepIndex++;
+  }
 
   paymentElementForm = this.fb.group({
     name: ['', [Validators.required]],
