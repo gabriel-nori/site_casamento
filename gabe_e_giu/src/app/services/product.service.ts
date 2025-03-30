@@ -1,6 +1,7 @@
 import { Categories, product, ProductFilter, Tags, Types } from '@models/product.model'
 import { CacheService } from '@services/cache.service'
 import { Injectable } from '@angular/core';
+import { MoneyConverter } from './money_converter.service';
 
 @Injectable({
     providedIn: 'root'
@@ -11,6 +12,7 @@ export class ProductService {
     private category_cache: CacheService<string> = new CacheService("product_category", true, "categories.php")
     private type_cache: CacheService<string> = new CacheService("product_type", true, "types.php")
     private tags_cache: CacheService<Tags> = new CacheService("product_type", true, "tags.php")
+    private converter: MoneyConverter = new MoneyConverter()
 
     public async getProducts(): Promise<product[]> {
         return await this.product_cache.getDataAutomatic()
@@ -40,15 +42,29 @@ export class ProductService {
     }
 
     public async filter(filter_by: ProductFilter): Promise<product[]> {
-        let filtered = await this.getProducts()
+        let filtered: product[] = structuredClone(await this.getProducts())
         if ("search_term" in filter_by) {
             filtered = this.searchProducts(filtered, filter_by["search_term"] ?? "")
         }
+
         // for (const key in filter_by) {
         //     if (filter_by.hasOwnProperty(key)) {
         //         filtered = this.filterProductsBy(filtered, )
         //     }
         // }
+
+        if("currency" in filter_by){
+            filtered.forEach(
+                product => {
+                    product.price_cents = this.converter.convert(
+                        product.price_cents,
+                        filter_by.currency
+                    )
+                    product.currency = filter_by.currency
+                }
+            )
+        }
+
         if ("order" in filter_by) {
             const key = filter_by["order"].key as keyof typeof filtered[0];
             if (filter_by["order"].field_type === 'number') {

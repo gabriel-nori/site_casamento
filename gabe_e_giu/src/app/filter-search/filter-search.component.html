@@ -17,12 +17,12 @@
         <div class="moeda_select">
             <label>
                 R$
-                <input type="radio" name="option" [(ngModel)]="selectedOption" value="R$">
+                <input type="radio" name="option" [(ngModel)]="selectedOption" (change)="updateCurrency()" value="R$">
             </label>
 
             <label>
                 USD
-                <input type="radio" name="option" [(ngModel)]="selectedOption" value="USD">
+                <input type="radio" name="option" [(ngModel)]="selectedOption" (change)="updateCurrency()" value="USD">
             </label>
         </div>
 

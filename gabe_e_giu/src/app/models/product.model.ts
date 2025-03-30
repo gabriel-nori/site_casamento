@@ -6,6 +6,7 @@ export interface product {
     price_cents: number
     category: string
     type: string
+    currency?: string
 }
 
 export interface Categories {
@@ -28,6 +29,7 @@ export interface ProductFilter {
     categories?: string[]
     search_term?: string
     order: OrderFilter
+    currency?: string
 }
 
 export interface OrderKey {

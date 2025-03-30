@@ -1,14 +1,14 @@
 export class MoneyConverter {
-    private currencies: {name: string, factor: number}[] = [
-        {
+    private currencies: {[key: string]: {name: string, factor: number}} = {
+        "R$": {
             name: "R$",
             factor: 1
         },
-        {
+        "USD": {
             name: "USD",
             factor: 5.5
         }
-    ]
+    }
 
     public getCurrencies(): string[] {
         let currencies: string[] = []
@@ -18,7 +18,13 @@ export class MoneyConverter {
         return currencies
     }
 
-    public convert(value: number, to: string): number {
-        return value
+    public convert(value: number, to?: string): number {
+        if(!to){
+            return value
+        }
+        else {
+            value = value/this.currencies[to as keyof typeof this.currencies].factor
+            return parseFloat(value.toFixed(0))
+        }
     }
 }

@@ -16,4 +16,5 @@ export interface CartProductInterface {
     type: string
     quantity: number
     total_cents: number
+    currency?: string
 }

@@ -68,4 +68,9 @@ export class FilterSearchComponent {
           data: {}
         });
   }
+
+  updateCurrency() {
+    this.filter_obj.currency = this.selectedOption
+    this.filter.emit(this.filter_obj)
+  }
 }
