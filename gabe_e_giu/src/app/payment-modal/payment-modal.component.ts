@@ -4,6 +4,7 @@ import { environment } from '@environment';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import {
   injectStripe,
   StripeElementsDirective,
@@ -22,6 +23,7 @@ import { StripeService } from '@services/stripe.service';
 import { MatStepperModule } from '@angular/material/stepper';
 import { CartService } from '@services/cart.service';
 import { Router } from '@angular/router'
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-payment-modal',
@@ -33,6 +35,8 @@ import { Router } from '@angular/router'
     ReactiveFormsModule,
     MatStepperModule,
     MatInputModule,
+    MatIconModule,
+    CommonModule
   ],
   templateUrl: './payment-modal.component.html',
   styleUrl: './payment-modal.component.css'
@@ -50,6 +54,7 @@ export class PaymentModalComponent implements OnInit {
   private readonly fb = inject(UntypedFormBuilder);
   private readonly stripe_service = new StripeService();
   stepIndex = 0;
+  loading: boolean = true
 
   goNext() {
     this.stepIndex++;
@@ -92,12 +97,14 @@ export class PaymentModalComponent implements OnInit {
       })
       .then(pi => {
         this.elementsOptions.clientSecret = pi.client_secret as string;
+        this.loading = false
       });
   }
 
   pay() {
     if (this.paying()) return;
     this.paying.set(true);
+    this.loading = true
 
     const { name, email, address, zipcode, city } = this.paymentElementForm.getRawValue();
     this.stripe
@@ -131,6 +138,7 @@ export class PaymentModalComponent implements OnInit {
               email as string,
               name as string
             ).then(()=>{
+              this.loading = false
               this.cart.empty()
               this.dialogRef.close();
               this.router.navigate(['/success'])

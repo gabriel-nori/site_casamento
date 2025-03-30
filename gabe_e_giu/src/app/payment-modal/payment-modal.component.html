@@ -28,7 +28,7 @@
                     <mat-label>cidade</mat-label>
                     <input matInput placeholder="cidade" formControlName="city" />
                 </mat-form-field>
-                <button mat-button (click)="goNext()">next</button>
+                <mat-icon mat-button (click)="goNext()">arrow_forward_ios</mat-icon>
             </mat-step>
 
             <mat-step label="Segundo Passo">
@@ -37,7 +37,7 @@
                     <ngx-stripe-payment [options]="paymentElementOptions" />
                 </ngx-stripe-elements>
                 }
-                <button (click)="pay()">PAY</button>
+                <button (click)="pay()"><mat-icon>payments</mat-icon></button>
             </mat-step>
         </div>
     </mat-horizontal-stepper>
@@ -46,3 +46,6 @@
 
 
 </mat-dialog-content>
+<div class="loader_holder" [ngClass]="[!loading ? 'hide' : 'show_loader']">
+    <span class="loader"></span>
+</div>
