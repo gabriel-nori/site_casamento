@@ -53,33 +53,37 @@ export class PaymentModalComponent implements OnInit {
 
   private readonly fb = inject(UntypedFormBuilder);
   private readonly stripe_service = new StripeService();
+  protected isLinear: boolean = true
   stepIndex = 0;
   loading: boolean = true
   payment_error: string|undefined = undefined
 
   goNext() {
+    if (this.paymentElementForm.invalid) {
+      this.paymentElementForm.markAllAsTouched(); // To trigger validation messages
+      return;
+    }
     this.stepIndex++;
   }
 
   paymentElementForm = this.fb.group({
     name: ['', [Validators.required]],
-    email: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
     address: [''],
     zipcode: [''],
     city: [''],
-    amount: [2500, [Validators.required, Validators.pattern(/d+/)]]
   });
 
   elementsOptions: StripeElementsOptions = {
-    locale: 'en',
+    locale: 'pt',
     appearance: {
-      theme: 'flat',
+      theme: 'stripe',
     },
   };
 
   paymentElementOptions: StripePaymentElementOptions = {
     layout: {
-      type: 'tabs',
+      type: 'auto',
       defaultCollapsed: false,
       radios: false,
       spacedAccordionItems: false

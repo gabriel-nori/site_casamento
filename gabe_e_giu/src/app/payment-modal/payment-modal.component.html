@@ -1,19 +1,28 @@
 <h2 mat-dialog-title>Pagamento</h2>
 <mat-dialog-content>
-    <mat-horizontal-stepper #stepper [(selectedIndex)]="stepIndex">
+    <mat-stepper #stepper [(selectedIndex)]="stepIndex" orientation="horizontal" [linear]="isLinear">
         <div [formGroup]="paymentElementForm">
-            <mat-step label="Primeiro Passo" class="custom-step">
+            <mat-step label="Dados" class="custom-step" [stepControl]="paymentElementForm">
                 <div class="form-container">
                     <mat-form-field appearance="outline">
                         <mat-icon matPrefix>person</mat-icon>
                         <mat-label>Nome</mat-label>
                         <input matInput placeholder="Digite seu nome" formControlName="name" />
+                        <mat-error *ngIf="paymentElementForm.get('name')?.hasError('required') && paymentElementForm.get('name')?.touched">
+                            Informe seu nome
+                          </mat-error>
                     </mat-form-field>
 
                     <mat-form-field appearance="outline">
                         <mat-icon matPrefix>email</mat-icon>
                         <mat-label>Email</mat-label>
                         <input matInput placeholder="nome@exemplo.com.br" type="email" formControlName="email" />
+                        <mat-error *ngIf="paymentElementForm.get('email')?.hasError('required') && paymentElementForm.get('email')?.touched">
+                            Informe seu e-mail
+                          </mat-error>
+                          <mat-error *ngIf="paymentElementForm.get('email')?.hasError('email') && paymentElementForm.get('email')?.touched">
+                              Informe um e-mail válido
+                            </mat-error>
                     </mat-form-field>
 
                     <mat-form-field appearance="outline">
@@ -44,7 +53,7 @@
                 </div>
             </mat-step>
 
-            <mat-step label="Segundo Passo">
+            <mat-step label="Pagamento">
                 <div class="card_inquire">
                     @if (elementsOptions.clientSecret) {
                     <ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
@@ -66,7 +75,7 @@
                 </div>
             </mat-step>
         </div>
-    </mat-horizontal-stepper>
+    </mat-stepper>
 
 
 
