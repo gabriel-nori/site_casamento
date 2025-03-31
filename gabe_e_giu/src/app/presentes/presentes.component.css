@@ -49,9 +49,6 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
-    /* padding-left: 20px;
-    padding-right: 20px; */
 }
 
 .product_card {
@@ -61,8 +58,8 @@
     margin-top: 40px;
 }
 
-.product_card:first-child {
-    margin-top: 0;
+.product_card:first-of-type {
+    margin-top: 20px;
 }
 
 .filter_search {
@@ -72,7 +69,7 @@
 .filter_search_holder {
     margin-top: 20px;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .menu {
@@ -95,4 +92,17 @@
     align-items: center;
     justify-content: center;
     color: #440f21;
+}
+
+.lua_de_mel_text {
+    text-transform: uppercase;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    padding-left: 20px;
+    text-align: left;
+    font-family: 'Bigilla', sans-serif;
+    color: #da5e27;
+    font-size: 4rem;
+    font-weight: 800;
 }
