@@ -24,6 +24,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { CartService } from '@services/cart.service';
 import { Router } from '@angular/router'
 import { CommonModule } from '@angular/common';
+import { Preferences } from '@services/preferences.service';
+import { MoneyConverter } from '@services/money_converter.service';
 
 @Component({
   selector: 'app-payment-modal',
@@ -51,6 +53,8 @@ export class PaymentModalComponent implements OnInit {
   @ViewChild(StripePaymentElementComponent)
   paymentElement!: StripePaymentElementComponent;
 
+  private preferences: Preferences = new Preferences()
+  private converter: MoneyConverter = new MoneyConverter()
   private readonly fb = inject(UntypedFormBuilder);
   private readonly stripe_service = new StripeService();
   protected isLinear: boolean = true
@@ -97,8 +101,8 @@ export class PaymentModalComponent implements OnInit {
   ngOnInit() {
     this.stripe_service
       .createPaymentIntent({
-        amount: this.cart.get().total,
-        currency: 'brl'
+        amount: this.converter.autoConvert(this.cart.get().total),
+        currency: (this.preferences.getPreferences().currency ?? "R$") == "R$" ? 'brl' : 'usd'
       })
       .then(pi => {
         this.elementsOptions.clientSecret = pi.client_secret as string;

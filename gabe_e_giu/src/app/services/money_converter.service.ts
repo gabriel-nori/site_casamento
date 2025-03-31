@@ -32,7 +32,7 @@ export class MoneyConverter {
     }
 
     public autoConvert(value: number): number {
-        return this.convert(value, this.preferences.getPreferences().currency ?? "R$")
+        return Math.floor(this.convert(value, this.preferences.getPreferences().currency ?? "R$"))
     }
 
     public autoString(value: number): string {
