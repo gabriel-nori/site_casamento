@@ -34,6 +34,7 @@ a {
     flex-direction: row;
     align-self: self-start;
     padding-left: 20px;
+    cursor: pointer;
 }
 
 .menu_bar {
@@ -78,6 +79,13 @@ a {
 }
 
 @media (max-width: 550px) {
+    .menu_bar {
+        height: 50px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+    }
     .container_holder {
         z-index: 20;
         display: flex;
@@ -142,6 +150,70 @@ a {
     .menu_bar_names {
         flex-grow: 1;
     }
+
+
+    .open_menu {
+        animation: opened_menu 0.5s ease-out forwards;
+    }
+
+    .close_menu {
+        animation: closed_menu 0.5s ease-in forwards;
+    }
+}
+
+@media (min-width: 551px) {
+    .menu_wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .menu_holder{
+        flex-grow: 1;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+        padding-right: 30px;
+
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+        align-self: flex-end;
+        width: 100%;
+    }
+
+    .menu ul {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+        justify-content: end;
+        align-items: end;
+        align-self: flex-end;
+    }
+
+    .menu ul li {
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    .open_menu,
+    .close_menu {
+        
+    }
+
+    .container_holder,
+    .menu_spacer {
+        display: none;
+    }
 }
 
 .container {
@@ -189,12 +261,4 @@ a {
     to {
         transform: translateX(100%);
     }
-}
-
-.open_menu {
-    animation: opened_menu 0.5s ease-out forwards;
-}
-
-.close_menu {
-    animation: closed_menu 0.5s ease-in forwards;
 }
