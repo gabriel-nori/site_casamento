@@ -30,7 +30,6 @@ export class ApiService<T> {
                 const queryString = new URLSearchParams(params.query_parameters).toString();
                 api_url += `?${queryString}`
             }
-            console.log(params)
             const response = await fetch(api_url, {
                 method: "POST",
                 body: JSON.stringify(params.body)
