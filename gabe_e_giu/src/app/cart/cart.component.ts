@@ -11,6 +11,7 @@ import { MenuComponent } from '../menu/menu.component';
 import { PaymentModalComponent } from '../payment-modal/payment-modal.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MoneyConverter } from '@services/money_converter.service';
+import { MenuConfig } from '@models/menu.model';
 
 @Component({
   selector: 'app-cart',
@@ -24,6 +25,12 @@ import { MoneyConverter } from '@services/money_converter.service';
   styleUrl: './cart.component.css'
 })
 export class CartComponent implements OnInit{
+  logo_properties: MenuConfig = {
+    color: 'marsala',
+    background_color: "#f6b1ca",
+    hamburger_color: "#440f21"
+  }
+  
   constructor(
     private cart: CartService,
     public dialog: MatDialog
