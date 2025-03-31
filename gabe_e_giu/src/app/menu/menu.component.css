@@ -17,8 +17,8 @@ a {
 }
 
 .name {
-    max-height: 40px;
-    height: 40px;
+    max-height: 30;
+    height: 30px;
 }
 
 .name_holder {
