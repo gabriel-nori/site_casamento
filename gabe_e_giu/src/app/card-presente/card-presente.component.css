@@ -23,11 +23,11 @@
 }
 
 .cart_add {
-    width: 100%;
+    flex-grow: 1;
+    align-self: flex-end;
     max-width: 100%;
     align-items: start;
     justify-content: space-evenly;
-    margin-top: 10px;
 }
 
 
@@ -39,7 +39,7 @@
     display: block;
 }
 
-.price,
+
 .title,
 .description {
     padding: 0;
@@ -47,4 +47,22 @@
     margin-top: 10px;
     width: 100%;
     text-align: left;
+}
+
+.price {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    align-self: center;
+}
+
+.price_and_cart {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    height: 45px;
 }

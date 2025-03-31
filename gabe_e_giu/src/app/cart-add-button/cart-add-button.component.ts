@@ -69,6 +69,10 @@ export class CartAddButtonComponent implements OnInit {
   }
 
   add_to_cart() {
+    if(!this.selecting_quantity){
+      this.selecting_quantity = true
+      return
+    }
     if(!this.editMode){
       this.selecting_quantity = false
       this.cart.addItem(this.product, this.quantity)

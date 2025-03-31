@@ -1,4 +1,4 @@
-.main {
+/* .main {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -48,7 +48,7 @@
     background-color: transparent;
     /* border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-bottom-color: #000000; */
+    border-bottom-color: #000000;
     padding: 0;
 }
 
@@ -84,4 +84,57 @@
 
 .confirm {
     flex-grow: 1;
+} */
+
+
+.main {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.add_btn {
+    /* border-width: 1px;
+    border-style: solid; */
+    padding: 10px;
+}
+
+.adder_holder {
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+    align-self: flex-end;
+    background-color: #c9c9c9;
+    align-items: center;
+    justify-content: center;
+}
+
+.adder_actions {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 5px;
+    
+}
+
+.counter {
+    max-width: 30px;
+    border: none;
+    background-color: #c9c9c9;
+    max-height: 25px;
+    text-align: center;
+}
+
+.close {
+    margin-right: 5px;
+}
+
+.hide {
+    display: none;
 }

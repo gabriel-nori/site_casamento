@@ -1,4 +1,4 @@
-<div class="main">
+<!-- <div class="main">
     <div class="quantity" [ngClass]="[selecting_quantity||(editMode && !added_to_cart) ? 'show' : 'hide']">
         <mat-icon class="close" (click)="toggle_quantity_select()" *ngIf="!editMode">close</mat-icon>
         <mat-icon class="decrease" (click)="decrease_quantity()">remove</mat-icon>
@@ -11,4 +11,17 @@
         add_shopping_cart
     </mat-icon>
     <mat-icon class="" [ngClass]="[added_to_cart ? 'show' : 'hide']">check_circle</mat-icon>
+</div> -->
+
+<div class="main">
+    <div class="adder_holder">
+        <div class="adder_actions" [ngClass]="[!selecting_quantity ? 'hide' : '']">
+            <mat-icon class="close" (click)="toggle_quantity_select()">close</mat-icon>
+            <mat-icon class="decrease" (click)="decrease_quantity()">arrow_drop_down</mat-icon>
+            <input type="number" [(ngModel)]="quantity" class="counter">
+            <mat-icon class="increase" (click)="increase_quantity()">arrow_drop_up</mat-icon>
+        </div>
+        <mat-icon class="add_btn" (click)="add_to_cart()" [ngClass]="[added_to_cart ? 'hide' : '']">add_shopping_cart</mat-icon>
+        <mat-icon class="add_btn" [ngClass]="[!added_to_cart ? 'hide' : '']">check</mat-icon>
+    </div>
 </div>
