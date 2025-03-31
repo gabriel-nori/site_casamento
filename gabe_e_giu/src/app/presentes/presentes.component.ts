@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { CartService } from '@services/cart.service';
 import { SpinnerComponent } from '../spinner/spinner.component';
+import { MenuConfig } from '@models/menu.model';
 
 @Component({
   selector: 'app-presentes',
@@ -25,6 +26,12 @@ import { SpinnerComponent } from '../spinner/spinner.component';
   styleUrl: './presentes.component.css'
 })
 export class PresentesComponent implements OnInit{
+  logo_properties: MenuConfig = {
+    color: 'marsala',
+    background_color: "#f6b1ca",
+    hamburger_color: "#440f21"
+  }
+
   private cart: CartService = new CartService()
   product_service: ProductService = new ProductService()
   products: product[] = []
@@ -37,16 +44,6 @@ export class PresentesComponent implements OnInit{
     this.has_items = this.products.length > 0
     this.loading = false
   }
-
-  // searchUpdated(term: string) {
-  //   this.filter_obj["search_term"] = term
-  //   this.applyFilter()
-  // }
-
-  // orderUpdated(filter: string) {
-  //   this.filter_obj["order"] = this.filter_map[filter]
-  //   this.applyFilter()
-  // }
 
   async applyFilter(filter: ProductFilter) {
     this.loading = true
