@@ -1,17 +1,24 @@
 .main {
-    width: 100%;
+    width: clac(100% - 60px);
     max-width: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    padding: 50px;
     background-color: #715f26;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .icon {
     height: 30px;
     width: auto;
     stroke: #f2dcd6;
+}
+
+.spacer {
+    flex-grow: 1;
 }
 
 .name {
@@ -21,9 +28,16 @@
 .gabe_e_giu {
     display: flex;
     flex-direction: row;
+    align-self: center;
 }
 
 .social {
     display: flex;
     flex-direction: row;
+    align-self: center;
+    gap: 5px;
+}
+
+.instagram_icon {
+    filter: invert(1);
 }
