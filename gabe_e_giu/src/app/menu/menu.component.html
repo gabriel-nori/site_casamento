@@ -19,6 +19,7 @@
                 <img [src]="logo_properties.custom_image" alt="flores" class="name">
             </div>
         </div>
+        <img src="/assets/icons/experiment.png" alt="experiment" class="experiment" *ngIf="!production">
         <div class="container_holder">
             <div class="container" (click)="toggle_menu()" [ngClass]="{ 'change': menu_open }">
                 <div class="bar1" [style.backgroundColor]="logo_properties.hamburger_color"></div>

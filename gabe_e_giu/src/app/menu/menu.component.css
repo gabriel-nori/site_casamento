@@ -236,6 +236,12 @@ a {
     }
 }
 
+.experiment {
+    height: 30px;
+    align-self: center;
+    margin-right: 20px;
+}
+
 .container {
     display: inline-block;
     cursor: pointer;

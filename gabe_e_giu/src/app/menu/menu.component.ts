@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import {RouterModule} from '@angular/router';
+import { environment } from '@environment';
 import { MenuConfig } from '@models/menu.model';
 
 @Component({
@@ -16,6 +17,7 @@ import { MenuConfig } from '@models/menu.model';
 })
 export class MenuComponent {
   menu_open: boolean = false
+  production: boolean = environment.production
   @Input() logo_properties: MenuConfig = {
     color: 'white',
     background_color: "#f2dcd6",
