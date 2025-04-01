@@ -47,6 +47,7 @@ export class CartAddButtonComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.selecting_quantity = this.editMode
     if(this.editMode){
       this.edit_object = this.cart.getItemById(this.product.id)
     }

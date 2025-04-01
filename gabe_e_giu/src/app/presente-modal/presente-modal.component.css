@@ -13,6 +13,31 @@ mat-dialog-content {
   border: 0px solid #000000;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+
 .cart_add {
   width: 100%;
+}
+
+.cover_img {
+  max-height: 50%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.price_and_cart {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  height: 45px;
 }

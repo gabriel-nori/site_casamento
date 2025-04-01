@@ -1,11 +1,13 @@
-<h2 mat-dialog-title>{{ data.item.name }}</h2>
+<h2 mat-dialog-title>{{ data.include ? data.item.name : "Edit quantity"}}</h2>
 <mat-dialog-content>
-  <img [src]="data.item.photo_path" alt="" class="cover_img">
-  <h3>{{ data.item.name }}</h3>
-  <p>{{data.item.description}}</p>
-  <p>Price: {{converter.autoString(data.item.price_cents/100)}}</p>
-  <div class="cart_add_holder">
-    <app-cart-add-button class="cart_add" [product]="data.item" [editMode]="!data.include"></app-cart-add-button>
+  <div class="content">
+    <img [src]="data.item.photo_path" alt="" class="cover_img">
+    <h3>{{ data.item.name }}</h3>
+    <p>{{data.item.description}}</p>
+    <div class="price_and_cart">
+      <p>Price: {{converter.autoString(data.item.price_cents/100)}}</p>
+      <app-cart-add-button class="cart_add" [product]="data.item" [editMode]="!data.include"></app-cart-add-button>
+    </div>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

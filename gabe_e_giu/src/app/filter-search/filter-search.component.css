@@ -10,7 +10,6 @@
 
 .search_bar {
     flex-grow: 1;
-    width: 90%;
     border-radius: 20%;
 }
 
@@ -26,8 +25,10 @@
 }
 
 .input-icons {
-    width: 90%;
+    flex-grow: 1;
     min-height: 35px;
+    width: 500px;
+    min-width: 25%;
 }
 
 .input-icons i {

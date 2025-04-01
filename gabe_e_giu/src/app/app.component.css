@@ -19,5 +19,5 @@ a {
     bottom: 0;
     width: 100%;
     max-width: 100%;
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
