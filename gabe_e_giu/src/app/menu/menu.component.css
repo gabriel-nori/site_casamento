@@ -159,6 +159,26 @@ a {
     .close_menu {
         animation: closed_menu 0.5s ease-in forwards;
     }
+
+    @keyframes opened_menu {
+        from {
+            transform: translateX(100%);
+        }
+    
+        to {
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes closed_menu {
+        from {
+            transform: translateX(0);
+        }
+    
+        to {
+            transform: translateX(100%);
+        }
+    }
 }
 
 @media (min-width: 551px) {
@@ -241,24 +261,4 @@ a {
 
 .change .bar3 {
     transform: translate(0, -7px) rotate(45deg);
-}
-
-@keyframes opened_menu {
-    from {
-        transform: translateX(100%);
-    }
-
-    to {
-        transform: translateX(0);
-    }
-}
-
-@keyframes closed_menu {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(100%);
-    }
 }
