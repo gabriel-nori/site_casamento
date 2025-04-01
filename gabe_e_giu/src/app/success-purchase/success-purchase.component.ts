@@ -1,6 +1,7 @@
 import { Component, VERSION, ElementRef, Renderer2, OnInit } from '@angular/core';
 import confetti from 'canvas-confetti';
 import { MenuComponent } from '../menu/menu.component';
+import { MenuConfig } from '@models/menu.model';
 
 @Component({
   selector: 'app-success-purchase',
@@ -13,6 +14,11 @@ export class SuccessPurchaseComponent implements OnInit {
     private renderer2: Renderer2,
     private elementRef: ElementRef,
   ) { }
+  logo_properties: MenuConfig = {
+    color: 'marsala',
+    background_color: "#f2dcd6",
+    hamburger_color: "#440f21"
+  }
 
   ngOnInit(): void {
     this.celebrate()
