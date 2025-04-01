@@ -107,6 +107,8 @@ export class PaymentModalComponent implements OnInit {
       .then(pi => {
         this.elementsOptions.clientSecret = pi.client_secret as string;
         this.loading = false
+      }).catch(() => {
+        this.loading = false
       });
   }
 
@@ -138,6 +140,7 @@ export class PaymentModalComponent implements OnInit {
         this.paying.set(false);
         if (result.error) {
           this.payment_error = result.error.message
+          this.loading = false
         } else {
           // The payment has been processed!
           if (result.paymentIntent.status === 'succeeded') {
