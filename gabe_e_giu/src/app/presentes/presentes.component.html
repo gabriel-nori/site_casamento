@@ -23,6 +23,7 @@
         <app-card-presente *ngFor="let product of products" [product]="product"
             class="product_card"></app-card-presente>
     </div>
+    <app-footer></app-footer>
 </div>
 <a [routerLink]="['/cart']">
     <mat-icon class="material-icons-outlined fab">shopping_cart</mat-icon>

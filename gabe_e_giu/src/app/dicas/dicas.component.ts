@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { MenuComponent } from '../menu/menu.component';
 import { MenuConfig } from '@models/menu.model';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-dicas',
-  imports: [MenuComponent],
+  imports: [
+    MenuComponent,
+    FooterComponent
+  ],
   templateUrl: './dicas.component.html',
   styleUrl: './dicas.component.css'
 })

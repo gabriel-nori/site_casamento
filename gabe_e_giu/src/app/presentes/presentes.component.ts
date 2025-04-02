@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { CartService } from '@services/cart.service';
 import { SpinnerComponent } from '../spinner/spinner.component';
 import { MenuConfig } from '@models/menu.model';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-presentes',
@@ -20,7 +21,8 @@ import { MenuConfig } from '@models/menu.model';
     MenuComponent,
     MatIconModule,
     RouterModule,
-    SpinnerComponent
+    SpinnerComponent,
+    FooterComponent
   ],
   templateUrl: './presentes.component.html',
   styleUrl: './presentes.component.css'
