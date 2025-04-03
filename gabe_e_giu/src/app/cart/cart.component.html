@@ -4,9 +4,7 @@
         <div class="items_holder">
             <ng-container *ngIf="cart_items.length > 0">
                 <div class="item_row" *ngFor="let item of cart_items">
-                    <div class="main_item_data">
-                        <img [src]="item.photo_path" alt="" class="item_img">
-                    </div>
+                    <img [src]="item.photo_path" alt="" class="item_img">
                     <div class="secondary_item_data">
                         <p class="item_name">{{item.name}}</p>
                         <p class="unit_cost">{{converter.autoString(item.price_cents/100)}} X <span
