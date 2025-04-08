@@ -62,15 +62,15 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    max-width: 1000px;
-    margin-left: 20px;
-    margin-right: 20px;
 }
 
 .items_holder {
     padding-top: 20px;
     padding-bottom: 40px;
     width: 100%;
+    max-width: 1000px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .cart_overview {
