@@ -5,3 +5,57 @@
 .menu {
     width: 100%;
 }
+
+.page_inner{
+    width: calc(100% - 40px);
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    flex-direction: column;
+}
+
+.hotel{
+
+}
+
+.hotel_inner{
+
+}
+
+.hotel_title{
+
+}
+
+.van{
+
+}
+
+.van_inner{
+
+}
+
+.van_title{
+
+}
+
+.van_text{
+
+}
+
+.product_card{
+
+}
+
+.beleza{
+
+}
+
+.maquiagem{
+
+}
+
+.cabelo{
+
+}

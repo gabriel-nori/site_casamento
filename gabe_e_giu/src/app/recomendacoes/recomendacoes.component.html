@@ -1,3 +1,49 @@
 <div class="main">
-    <app-menu class="menu"></app-menu>
+    <app-menu class="menu" [logo_properties]="logo_properties"></app-menu>
+    <div class="page_inner">
+        <div class="hotel">
+            <div class="hotel_inner">
+                <h2 class="hotel_title">HOSPEDAGEM</h2>
+                <p class="hospedagem_text">
+                    Por ser nosso convidado, reservando sua estadia no Hotel Marbor, utilizando <a
+                    href="https://book.omnibees.com/hotelresults?c=6784&q=11462&hotel_folder=&NRooms=1&CheckIn=20062025&CheckOut=21062025&ad=2&ch=0&ag=&Code=GABEEGIU15&lang=pt-BR&currencyId=16"
+                    target="_blank"
+                >nosso link</a>, garante a você 15% de desconto na reserva!
+                    <br>
+                    Para receber um desconto adiconal de 5%, basta fazer seu cadastro no site.
+                </p>
+                <p class="hotel_cupom_link">
+                    Código do cupom: GABEEGIU15
+                    <br>
+                    Reserve aqui sua hospedagem: 
+                    <a
+                        href="https://book.omnibees.com/hotelresults?c=6784&q=11462&hotel_folder=&NRooms=1&CheckIn=20062025&CheckOut=21062025&ad=2&ch=0&ag=&Code=GABEEGIU15&lang=pt-BR&currencyId=16"
+                        target="_blank"
+                    >
+                        Link promocional
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="van">
+            <div class="van_inner">
+                <h2 class="van_title">TRANSPORTE</h2>
+                <p class="van_text">
+                    Recomendamos deixar seu transporte agendado para o dia. É possível chamar Uber para voltar, porém leva, em média 40 minutos para chegar.
+                </p>
+                <app-card-presente 
+                    [product]="product"
+                    class="product_card"
+                ></app-card-presente>
+            </div>
+        </div>
+        <div class="beleza">
+            <div class="maquiagem">
+
+            </div>
+            <div class="cabelo">
+
+            </div>
+        </div>
+    </div>
 </div>
