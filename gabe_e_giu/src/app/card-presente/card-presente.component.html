@@ -2,7 +2,7 @@
     <div class="inner">
         <img [src]="product.photo_path" alt="" class="cover_img">
         <h3 class="title">{{ product.name }}</h3>
-        <p class="description">{{ product.description }}</p>
+        <pre class="description">{{ product.description }}</pre>
         <div class="price_and_cart">
             <p class="price">{{ converter.autoString(product.price_cents / 100) }}</p>
             <app-cart-add-button class="cart_add" [product]="product"></app-cart-add-button>
