@@ -38,11 +38,16 @@
             </div>
         </div>
         <div class="beleza">
-            <div class="maquiagem">
-
-            </div>
-            <div class="cabelo">
-
+            <h2 class="beleza_title">
+                CABELO E MAQUIAGEM
+            </h2>
+            <div class="beleza_inner">
+                <app-business-card
+                    *ngFor="let business of businesses"
+                    [business]="business"
+                    class="business_card"
+                >
+                </app-business-card>
             </div>
         </div>
     </div>

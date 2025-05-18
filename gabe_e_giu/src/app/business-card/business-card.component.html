@@ -1,0 +1,58 @@
+<div class="card box_shaddow round_border">
+    <div class="inner">
+        <!-- <img [src]="product.photo_path" alt="" class="cover_img"> -->
+        <h3 class="name_title">
+            {{business.name}}
+        </h3>
+        <img
+            *ngIf="business.cover_image"
+            [src]="business.cover_image"
+            alt=""
+            class="cover_image"
+        >
+        <h3 class="phone">
+            Contato
+        </h3>
+        <div class="info">
+            <img
+                src="assets/icons/instagram_thin.svg"
+                alt=""
+                class="address_icon icon"
+            >
+            <p class="instagram_url">
+                <a [href]="business.instagram_url">
+                    {{business.instagram_url}}
+                </a>
+            </p>
+        </div>
+        <div class="info">
+            <img
+                src="assets/icons/whatsapp.png"
+                alt=""
+                class="whatsapp_icon icon"
+            >
+            <p class="whatsapp">
+                <a [href]="whatsapp_link">
+                    {{business.whatsapp}}
+                </a>
+            </p>
+        </div>
+        <div class="address" *ngIf="business.address">
+            <h3 class="address_title">
+                Endereço
+            </h3>
+                <div class="info">
+                <img
+                    src="assets/icons/map_pin.png"
+                    alt=""
+                    class="address_icon icon"
+                >
+                <p class="address_text">
+                    <a [href]="maps_link">
+                        {{business.address}}
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
