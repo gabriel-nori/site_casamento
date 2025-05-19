@@ -1,38 +1,56 @@
 import { PreferencesInterface } from "@models/preferences.model";
+import { LocalStorage } from "./localStorage.service";
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
 
 export class Preferences {
-    key: string = "preferences_storage"
-    data: PreferencesInterface = {}
+    private key: string = "preferences_storage";
+    private data: PreferencesInterface = {};
+    private storage: LocalStorage = new LocalStorage()
 
-    constructor(){
-        this.retrieveData()
+    constructor() {
+        if (this.isStorageAvailable()) {
+            this.retrieveData();
+        }
     }
 
-    public updateProperties(data: PreferencesInterface) {
-        this.data = data
-        this.storeData()
+    public updateProperties(data: PreferencesInterface): void {
+        this.data = { ...data };
+        this.storeData();
     }
 
-    public updateProperty(data:{key: string, value: any}) {
-        this.data[data.key as keyof typeof this.data] = data.value
-        this.storeData()
+    public updateProperty(data: { key: string; value: any }): void {
+        this.data[data.key as keyof PreferencesInterface] = data.value;
+        this.storeData();
     }
 
     public getPreferences(): PreferencesInterface {
-        return this.data
+        this.retrieveData()
+        return this.data;
+    }
+
+    public getKeyValue(key: string, fallback?: any): any {
+        const data = this.retrieveData();
+        if (key in data) {
+            return data[key as keyof PreferencesInterface];
+        }
+        if (fallback !== undefined) {
+            return fallback;
+        }
+        throw new Error(`Key "${key}" was not found and no fallback was provided.`);
     }
 
     private storeData(): void {
-        localStorage.setItem(this.key, JSON.stringify(this.data));
+        this.storage.storeData(this.key, this.data)
     }
 
     private retrieveData(): PreferencesInterface {
-        const stored_data = localStorage.getItem(this.key)
-        if (!stored_data) {
-            return {}
-        }
-        const data: PreferencesInterface = JSON.parse(stored_data)
-        this.data = data
-        return data
+        this.data = this.storage.retrieveData<PreferencesInterface>(this.key)
+        return this.data
+    }
+
+    private isStorageAvailable(): boolean {
+        return typeof window !== "undefined" && typeof localStorage !== "undefined";
     }
 }

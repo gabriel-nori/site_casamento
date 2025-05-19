@@ -98,7 +98,7 @@ export class CacheService<T> {
     }
       
     private retrieveData(): cache<T> {
-        const stored_data = this.storage.retrieveData(this.cache_key)
+        const stored_data = this.storage.retrieveData<cache<T>>(this.cache_key)
         if(!stored_data) {
             return {data:[], timestamp: 0}
         }

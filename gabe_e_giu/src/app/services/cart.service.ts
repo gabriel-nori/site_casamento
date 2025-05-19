@@ -45,8 +45,8 @@ export class CartService {
     }
 
     private loadCart() {
-        const stored_data = this.storage.retrieveData(this.cart_key)
-        if (!stored_data) {
+        const stored_data = this.storage.retrieveData(this.cart_key) as cartInterface
+        if (!("items" in stored_data)) {
             return
         }
         this.cart = stored_data
