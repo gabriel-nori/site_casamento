@@ -2,6 +2,7 @@ import { cartInterface, CartProductInterface } from '@models/cart.model';
 import { OrderKey, product } from '@models/product.model'
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
+import { LocalStorage } from './localStorage.service';
 
 @Injectable({
     providedIn: 'root'
@@ -9,6 +10,7 @@ import { ApiService } from './api.service';
 
 export class CartService {
     private readonly cart_key: string = "cart_storage"
+    private storage: LocalStorage = new LocalStorage()
     private cart: cartInterface = {
         total: 0,
         item_count: 0,
@@ -43,16 +45,15 @@ export class CartService {
     }
 
     private loadCart() {
-        const stored_data = localStorage.getItem(this.cart_key)
+        const stored_data = this.storage.retrieveData(this.cart_key)
         if (!stored_data) {
             return
         }
-        const data: cartInterface = JSON.parse(stored_data)
-        this.cart = data
+        this.cart = stored_data
     }
 
     private storeCart() {
-        localStorage.setItem(this.cart_key, JSON.stringify(this.cart))
+        this.storage.storeData(this.cart_key, this.cart)
     }
 
     public addItem(item: product, quantity: number) {

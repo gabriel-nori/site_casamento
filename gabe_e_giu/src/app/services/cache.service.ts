@@ -1,10 +1,12 @@
 import { cache } from '@models/cache.model'
 import { ApiService } from '@api'
 import { environment } from '@environment'
+import { LocalStorage } from './localStorage.service'
 
 export class CacheService<T> {
     private cache: cache<T> = {data:[], timestamp: 0}
     private default_duration: number = environment.default_cache_time_seconds
+    private storage: LocalStorage = new LocalStorage()
     private duration: number = 0
     private api: null|ApiService<T> = null
     private default_path: string = ""
@@ -92,16 +94,15 @@ export class CacheService<T> {
 
 
     private storeData(data: any): void {
-        localStorage.setItem(this.cache_key, JSON.stringify(data));  // Store data in localStorage
+        this.storage.storeData(this.cache_key, data);  // Store data in localStorage
     }
       
     private retrieveData(): cache<T> {
-        const stored_data = localStorage.getItem(this.cache_key)
+        const stored_data = this.storage.retrieveData(this.cache_key)
         if(!stored_data) {
             return {data:[], timestamp: 0}
         }
-        const data: cache<T> = JSON.parse(stored_data)
-        this.cache = data
-        return data
+        this.cache = stored_data
+        return stored_data
     }
 }
