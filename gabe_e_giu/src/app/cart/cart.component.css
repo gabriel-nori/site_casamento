@@ -53,8 +53,22 @@
     border: 0px solid #000000;
 }
 
-.empty_cart_img {
+.empty_cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: 100%;
+}
+
+.empty_cart_img {
+    max-width: 100%;
+    max-height: 50%;
+    align-self: center;
+}
+
+.empty_cart_text {
+    font-size: 20px;
 }
 
 .bottom_holder {

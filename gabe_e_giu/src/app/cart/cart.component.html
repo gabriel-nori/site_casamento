@@ -30,9 +30,10 @@
                     </button>
                 </div>
             </ng-container>
-            <ng-container *ngIf="cart_items.length == 0">
-                <img src="/assets/images/empty_cart.webp" alt="" class="empty_cart_img">
-            </ng-container>
+            <div class="empty_cart" *ngIf="cart_items.length == 0">
+                <img src="/assets/images/toto_carrinho_vazio.png" alt="" class="empty_cart_img">
+                <h2 class="empty_cart_text">Poxa, seu carrinho ainda está vazio</h2>
+            </div>
         </div>
     </div>
 </div>
