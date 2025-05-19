@@ -1,0 +1,22 @@
+<div
+    class="main open_menu"
+    [ngClass]="visible ? '' : 'hide'"
+>
+    <div class="inner">
+        <img
+            src="assets/images/toto_cookie.png"
+            alt=""
+            class="cookie_img"
+        >
+        <div class="cookie_bottom">
+            <p class="cookie_text">
+                Para o correto funcionamento do nosso site, gostaríamos de lhe oferecer este delicioso cookie!
+                <br>
+                Por favor, aceite ele com muito carinho :)
+            </p>
+            <div class="bottom_actions">
+                <button class="close_btn" (click)="close_popup()">confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
