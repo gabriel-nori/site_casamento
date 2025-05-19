@@ -26,11 +26,3 @@
     width: 100%;
     max-width: 100%;
 }
-
-.business_card {
-    margin-top: 20px;
-}
-
-.business_card:first-of-type {
-    margin-top: 0;
-}

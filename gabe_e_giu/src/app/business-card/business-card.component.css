@@ -1,6 +1,11 @@
+card:first-of-type {
+    margin-top: 0;
+}
+
 .card {
     width: 100%;
     overflow: hidden;
+    margin-top: 20px;
 }
 
 .round_border {

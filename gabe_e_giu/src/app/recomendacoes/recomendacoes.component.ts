@@ -32,7 +32,7 @@ export class RecomendacoesComponent implements OnInit {
 
   product: product = {
     category: "",
-    description: "Reserva de lugar na van para e ir voltar da festa.\nHorários:\nSaída: 03:30 e 04:00\nRetorno: 10:00 e 12:00",
+    description: "Reserva de lugar na van para e ir voltar da festa.\nHorários:\nSaída: 15:30 (centro de Mogi, próximo ao Marbor)\nRetorno: 22:00 ou 00:00",
     id: 1234,
     name: "Lugar na van para ir e voltar",
     photo_path: "https://jvcvans.com.br/site/wp-content/uploads/2019/02/transporte-corporativo-sp.jpg",
