@@ -7,6 +7,7 @@ import { Business } from '@models/business.model';
 import { BusinessService } from '@services/business.service';
 import { BusinessCardComponent } from '../business-card/business-card.component';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-recomendacoes',
@@ -14,7 +15,8 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     MenuComponent,
     CardPresenteComponent,
-    BusinessCardComponent
+    BusinessCardComponent,
+    FooterComponent
   ],
   templateUrl: './recomendacoes.component.html',
   styleUrl: './recomendacoes.component.css'
