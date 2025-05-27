@@ -52,7 +52,7 @@ export class CacheService<T> {
     public update(data: T[]): T[] {
         this.cache.data = data
         this.cache.timestamp = this.getTimestamp()
-        this.storeData(this.cache)
+        this.storeData()
         return this.cache.data
     }
 
@@ -93,8 +93,8 @@ export class CacheService<T> {
     }
 
 
-    private storeData(data: any): void {
-        this.storage.storeData(this.cache_key, data);  // Store data in localStorage
+    private storeData(): void {
+        this.storage.storeData(this.cache_key, this.cache.data);  // Store data in localStorage
     }
       
     private retrieveData(): cache<T> {
@@ -104,5 +104,10 @@ export class CacheService<T> {
         }
         this.cache = stored_data
         return stored_data
+    }
+
+    public appendItem(item: T): void {
+        this.cache.data.push(item)
+        this.storeData()
     }
 }
