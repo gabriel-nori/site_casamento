@@ -26,6 +26,7 @@ import { Router } from '@angular/router'
 import { CommonModule } from '@angular/common';
 import { Preferences } from '@services/preferences.service';
 import { MoneyConverter } from '@services/money_converter.service';
+import { Client } from '@models/client.model';
 
 @Component({
   selector: 'app-payment-modal',
@@ -61,6 +62,7 @@ export class PaymentModalComponent implements OnInit {
   stepIndex = 0;
   loading: boolean = true
   payment_error: string|undefined = undefined
+  client: Client | undefined = undefined
 
   goNext() {
     if (this.paymentElementForm.invalid) {
@@ -73,9 +75,9 @@ export class PaymentModalComponent implements OnInit {
   paymentElementForm = this.fb.group({
     name: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
-    address: [''],
-    zipcode: [''],
-    city: [''],
+    address: ['', [Validators.required]],
+    zipcode: ['', [Validators.required]],
+    city: ['', [Validators.required]],
   });
 
   elementsOptions: StripeElementsOptions = {
@@ -99,6 +101,7 @@ export class PaymentModalComponent implements OnInit {
   paying = signal(false);
 
   ngOnInit() {
+    this.client = this.preferences.getClient()
     this.stripe_service
       .createPaymentIntent({
         amount: this.converter.autoConvert(this.cart.get().total),
@@ -110,6 +113,16 @@ export class PaymentModalComponent implements OnInit {
       }).catch(() => {
         this.loading = false
       });
+
+      if (this.client) {
+        this.paymentElementForm.setValue({
+          name: this.client.name,
+          email: this.client.email,
+          address: "",
+          zipcode: "",
+          city: "",
+        })
+      }
   }
 
   pay() {

@@ -19,16 +19,19 @@
                         <input matInput placeholder="nome@exemplo.com.br" type="email" formControlName="email" />
                         <mat-error *ngIf="paymentElementForm.get('email')?.hasError('required') && paymentElementForm.get('email')?.touched">
                             Informe seu e-mail
-                          </mat-error>
-                          <mat-error *ngIf="paymentElementForm.get('email')?.hasError('email') && paymentElementForm.get('email')?.touched">
-                              Informe um e-mail válido
-                            </mat-error>
+                        </mat-error>
+                        <mat-error *ngIf="paymentElementForm.get('email')?.hasError('email') && paymentElementForm.get('email')?.touched">
+                            Informe um e-mail válido
+                        </mat-error>
                     </mat-form-field>
 
                     <mat-form-field appearance="outline">
                         <mat-icon matPrefix>map</mat-icon>
                         <mat-label>Endereço</mat-label>
                         <input matInput placeholder="Rua, número, bairro..." formControlName="address" />
+                        <mat-error *ngIf="paymentElementForm.get('address')?.hasError('required') && paymentElementForm.get('address')?.touched">
+                            Informe seu endereço
+                        </mat-error>
                     </mat-form-field>
 
                     <div class="half-width">
@@ -36,12 +39,18 @@
                             <mat-icon matPrefix>map</mat-icon>
                             <mat-label>CEP</mat-label>
                             <input matInput placeholder="00000-000" formControlName="zipcode" />
+                            <mat-error *ngIf="paymentElementForm.get('zipcode')?.hasError('required') && paymentElementForm.get('zipcode')?.touched">
+                                Informe seu CEP ou ZIP code
+                            </mat-error>
                         </mat-form-field>
 
                         <mat-form-field appearance="outline">
                             <mat-icon matPrefix>location_city</mat-icon>
                             <mat-label>Cidade</mat-label>
                             <input matInput placeholder="Sua cidade" formControlName="city" />
+                            <mat-error *ngIf="paymentElementForm.get('city')?.hasError('required') && paymentElementForm.get('city')?.touched">
+                                Informe sua cidade
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
