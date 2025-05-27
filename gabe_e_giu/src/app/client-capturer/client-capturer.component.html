@@ -1,0 +1,42 @@
+<div class="main" *ngIf="visible">
+    <div class="info_holder">
+        <p class="text">
+            Não conseguimos identificar você ainda...
+            <br>
+            Por favor, conte-nose quem você é!
+        </p>
+        <div class="form">
+            <div class="form_container" [formGroup]="form">
+                <mat-form-field appearance="outline">
+                    <mat-icon matPrefix>person</mat-icon>
+                    <mat-label>Nome</mat-label>
+                    <input matInput placeholder="Digite seu nome" formControlName="name" />
+                    <mat-error *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched">
+                        Informe seu nome
+                        </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-icon matPrefix>email</mat-icon>
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="nome@exemplo.com.br" type="email" formControlName="email" />
+                    <mat-error *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">
+                        Informe seu e-mail
+                        </mat-error>
+                        <mat-error *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">
+                            Informe um e-mail válido
+                        </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <button
+            mat-fab
+            color="primary"
+            class="confirm_button"
+            (click)="save()"
+        >
+            <mat-icon>check_circle</mat-icon>
+        </button>
+        <mat-icon class="close" (click)="close()">cancel</mat-icon>
+    </div>
+</div>

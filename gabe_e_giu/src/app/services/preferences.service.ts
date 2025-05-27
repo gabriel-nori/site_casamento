@@ -1,6 +1,7 @@
 import { PreferencesInterface } from "@models/preferences.model";
 import { LocalStorage } from "./localStorage.service";
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { Client } from "@models/client.model";
 
 @Injectable({ providedIn: 'root' })
 
@@ -52,5 +53,20 @@ export class Preferences {
 
     private isStorageAvailable(): boolean {
         return typeof window !== "undefined" && typeof localStorage !== "undefined";
+    }
+
+    public getClient(): Client | undefined {
+        if (this.data.client) {
+            return this.data.client
+        }
+        else {
+            return undefined
+        }
+    }
+
+    public storeClient(client: Client): void {
+        this.retrieveData()
+        this.data.client = client
+        this.storeData()
     }
 }

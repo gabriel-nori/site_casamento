@@ -1,6 +1,9 @@
+import { Client } from "./client.model"
+
 export interface PreferencesInterface {
     currency?: string
     cookie_preferences?: CookiePreferences
+    client?: Client
 }
 
 export interface CookiePreferences {

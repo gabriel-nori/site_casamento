@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { CookiePopupComponent } from './cookie-popup/cookie-popup.component';
 import { Preferences } from '@services/preferences.service';
 import { PreferencesInterface } from '@models/preferences.model';
+import { Client } from '@models/client.model';
+import { ClientCapturerComponent } from './client-capturer/client-capturer.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,8 @@ import { PreferencesInterface } from '@models/preferences.model';
     RouterOutlet,
     RouterModule,
     MatIconModule,
-    CookiePopupComponent
+    CookiePopupComponent,
+    ClientCapturerComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -24,10 +27,12 @@ export class AppComponent implements OnInit{
   preferences: Preferences = new Preferences()
   cookie_display: boolean = false
   pref_data: PreferencesInterface = {}
+  client: Client | undefined = undefined
 
   ngOnInit(): void {
     this.pref_data = this.preferences.getPreferences()
     this.cookie_display = !("cookie_preferences" in this.pref_data)
+    this.client = this.preferences.getClient()
   }
 
   toggle_menu() {
