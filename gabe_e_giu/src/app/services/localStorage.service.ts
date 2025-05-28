@@ -9,7 +9,6 @@ export class LocalStorage {
 
     public retrieveData<T>(key: string): T {
         if (!this.isAvailable()) {
-            console.log("storage is not available")
             return {} as T;
         } 
 

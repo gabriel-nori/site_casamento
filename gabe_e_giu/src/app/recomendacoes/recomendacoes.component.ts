@@ -44,6 +44,5 @@ export class RecomendacoesComponent implements OnInit {
 
   async ngOnInit() {
     this.businesses = await this.business.getBusinesses()
-    console.log(this.businesses)
   }
 }
