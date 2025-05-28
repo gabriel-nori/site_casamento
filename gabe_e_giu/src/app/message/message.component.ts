@@ -33,13 +33,13 @@ export class MessageComponent implements OnInit{
   messages: Message[] = []
 
   async ngOnInit(): Promise<void> {
-    this.local_data_cache.storeMessageDraft({
-      body: "",
-      author_email: "",
-      author_name: "",
-      timestamp: Date.now(),
-      title: ""
-    })
+    // this.local_data_cache.storeMessageDraft({
+    //   body: "",
+    //   author_email: "",
+    //   author_name: "",
+    //   timestamp: Date.now(),
+    //   title: ""
+    // })
     this.message_draft = this.local_data_cache.getMessage()
     this.messages = await this.message_service.getMessages()
   }

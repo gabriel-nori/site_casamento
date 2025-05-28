@@ -23,13 +23,11 @@ export class LocalDataService{
 
     public getMessage(): Message | undefined {
         const message_from_cache = this.data?.message
-        console.log(message_from_cache)
         return undefined
     }
 
     public storeMessageDraft(message: Message): void {
         this.data.message = message
-        console.log("storing message")
         this.storeData
     }
 }
