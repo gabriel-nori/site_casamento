@@ -1,0 +1,6 @@
+<div class="main">
+    <app-menu class="menu" [logo_properties]="logo_properties"></app-menu>
+    <div class="bottom_holder">
+        <app-message-card [message]="message" *ngFor="let message of messages"></app-message-card>
+    </div>
+</div>

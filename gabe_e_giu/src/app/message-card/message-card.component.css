@@ -1,0 +1,101 @@
+/* Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+    width: 6px;
+    /* Vertical scrollbar */
+    height: 6px;
+    /* Horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+/* Optional: Remove scrollbar corner box */
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+    width: 0;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+
+.card {
+    width: 100%;
+    /* background-color: #FFD02F; */
+    background-image: url("/assets/images/paper_texture.jpeg");
+    max-width: 250px;
+    margin-top: 30px;
+}
+
+.box_shaddow {
+    box-shadow: -3px 4px 11px -2px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -3px 4px 11px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -3px 4px 11px -2px rgba(0, 0, 0, 0.75);
+}
+
+.round_border {
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #FFD02F;
+}
+
+.thack_holder {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: -30px;
+}
+
+.tack_img {
+    width: 80%;
+}
+
+.inner {
+    padding: 0 20px 20px 20px;
+}
+
+.title {
+
+}
+
+.body_text {
+    margin-top: 20px;
+    max-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
+}
+
+.name_holder {
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.person_name {
+    font-size: 10px;
+}

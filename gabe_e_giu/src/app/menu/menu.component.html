@@ -1,7 +1,6 @@
 <div class="menu_wrapper" [style.backgroundColor]="logo_properties.background_color">
     <div class="menu_bar" [style.backgroundColor]="logo_properties.background_color">
-        <div class="name_holder"
-            *ngIf="logo_properties.color === 'white' && !logo_properties.custom_image">
+        <div class="name_holder" *ngIf="logo_properties.color === 'white' && !logo_properties.custom_image">
             <div class="logo_holder" [routerLink]="['/home']">
                 <img src="/assets/images/gabe.png" alt="Gabe" class="gabe_name name">
                 <img src="/assets/images/e_giu.png" alt="e Giu" class="giu_name name">
@@ -43,13 +42,18 @@
                     </a>
                 </li>
                 <li class="uppercase">
-                <a [routerLink]="['/recomendacoes']" routerLinkActive="active" (click)="toggle_menu()">
-                    Recomendações
-                </a>
-            </li>
+                    <a [routerLink]="['/recomendacoes']" routerLinkActive="active" (click)="toggle_menu()">
+                        Recomendações
+                    </a>
+                </li>
                 <li class="uppercase">
                     <a [routerLink]="['/presentes']" routerLinkActive="active" (click)="toggle_menu()">
                         Presentes
+                    </a>
+                </li>
+                <li class="uppercase">
+                    <a [routerLink]="['/messages']" routerLinkActive="active" (click)="toggle_menu()">
+                        Mensagens
                     </a>
                 </li>
                 <li>
